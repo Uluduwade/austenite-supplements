@@ -4,7 +4,7 @@ import ProductGrid from '../components/ProductGrid.jsx'
 import Tub from '../components/Tub.jsx'
 import { products } from '../data/products.js'
 
-const hero = products.filter((p) => ['iso-xp', 'critical-whey', 'creatine-50'].includes(p.id))
+const hero = products.filter((p) => ['iso-xp', 'critical-whey', 'creatine-50', 'unflavoured-250', 'shilajit', 'collagen'].includes(p.id))
 function Count({ to, suffix = '' }) {
   const [n, setN] = useState(0)
   useEffect(() => {
@@ -22,7 +22,7 @@ export default function Home() {
       <section className="hero">
         <div className="hero-copy">
           <p className="tag">Original UK imports</p>
-          <h1>Train harder. Recover faster.</h1>
+          <h1>"Train harder Recover faster"</h1>
           <p className="lead">Genuine Applied Nutrition protein, creatine and performance supplements, delivered across Sri Lanka.</p>
           <div className="row"><Link className="btn" to="/shop">Shop now</Link><Link className="btn ghost" to="/search">Search products</Link></div>
         </div>
@@ -38,7 +38,7 @@ export default function Home() {
       <div className="marquee"><div>{[...products, ...products].map((p, n) => <span key={n}>{p.name}</span>)}</div></div>
       <section className="sec">
         <h2>Best sellers</h2>
-        <ProductGrid items={products.filter((p) => ['iso-xp', 'critical-whey', 'test-x', 'shred-x'].includes(p.id))} />
+        <ProductGrid items={products.filter((p) => ['creatine-50', 'critical-whey', 'test-x', 'unflavoured-250', 'shred-x'].includes(p.id))} />
         <Link className="btn ghost more" to="/shop">View all products</Link>
       </section>
       <section className="stats">

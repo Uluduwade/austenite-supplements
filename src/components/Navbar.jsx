@@ -2,13 +2,13 @@ import { useState } from 'react'
 import { NavLink, Link } from 'react-router-dom'
 import { useCurrency } from '../currency.js'
 import logo from '../public/logo.png'
-const links = [['/', 'Home'], ['/shop', 'Shop'], ['/about', 'About us'], ['/search', 'Search'], ['/contact', 'Contact us']]
+const links = [['/', 'Home'], ['/shop', 'Shop'], ['/about', 'About'], ['/search', 'Search'], ['/contact', 'Contact us']]
 export default function Navbar() {
   const [open, setOpen] = useState(false)
   const { code, setCurrency } = useCurrency()
   return (
     <>
-      <div className="promo">100% original UK imported Applied Nutrition. Order on WhatsApp.</div>
+      <div className="promo">100% original UK imported Applied Nutrition. Place your Order</div>
       <header className="nav">
         <Link to="/" className="logo" onClick={() => setOpen(false)} aria-label="Austenite Supplements home">
           <img className="logo-image" src={logo} alt="Austenite Supplements" />

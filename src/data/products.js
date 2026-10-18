@@ -1,7 +1,7 @@
 // Add a photo to any product with: img: '/images/iso-xp.jpg' (file in /public/images)
 export const CATEGORIES = ['All', 'Protein', 'Performance', 'Wellness', 'Fat Burners']
 export const products = [
-  { id: 'iso-xp', name: 'ISO XP', cat: 'Protein', price: 40000, size: '1.8kg', flavours: ['Chocolate Dessert'], img: 'https://cdn.shopify.com/s/files/1/0454/0871/4919/files/ISO-XP_1.8_-_Strawberry.jpg?v=1790908150', desc: 'Ultra-clean whey isolate for lean muscle recovery.' },
+  { id: 'iso-xp', name: 'ISO XP', cat: 'Protein', price: 40000, size: '1.8kg', flavours: ['Chocolate Dessert'], img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_qs4yxV3b6w2XT-vxmvToKp-GdV93UvL38Gs5elEvtg&s=10', desc: 'Ultra-clean whey isolate for lean muscle recovery.' },
   { id: 'critical-whey', name: 'Critical Whey', cat: 'Protein', price: 28000, size: '2kg', flavours: ['White Choc Pistachio', 'Chocolate', 'Vanilla'], img: 'https://media.supplementking.ca/wysiwyg/AN_Critical_Whey_5lbs_Critical_Whey_Chocolate_Milkshake.jpg', desc: 'Premium whey protein blend with a serious flavour hit.' },
   { id: 'test-x', name: 'TEST X', cat: 'Performance', price: 12000, size: '120 capsules', flavours: [], img: 'https://cdn.shopify.com/s/files/1/0454/0871/4919/files/Test-X_Capsules.webp?v=1777431069', desc: 'Capsule support for strength and training drive.' },
   { id: 'creatine-hydration', name: 'Creatine + Hydration', cat: 'Performance', price: 10000, size: '30 servings', flavours: ['Non flavoured'], img: 'https://m.media-amazon.com/images/I/71EaYYVBcbL._AC_UF894,1000_QL80_.jpg', desc: 'Creatine with added hydration support for harder sessions.' },
