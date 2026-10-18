@@ -1,0 +1,31 @@
+/* ---------- Contact page ---------- */
+.tag.light{background:#fff;color:var(--ink)}
+.kicker{font:700 .85rem 'Inter',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:var(--steel);margin-bottom:1rem;display:flex;align-items:center;gap:.7rem}
+.kicker::before{content:'';width:28px;height:2px;background:var(--ink)}
+.contact-page{width:100%;max-width:none;margin:0}
+.contact-hero{background:linear-gradient(120deg,#0b0b0c 55%,#26272a);color:#fff;padding:9vh 5vw;overflow:hidden}
+.contact-hero-in{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:2rem}
+.contact-hero .lead{color:var(--silver)}
+.contact-mark{flex:none;color:var(--silver);opacity:.35;animation:float 5s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-12px)}}
+.contact-pills{display:flex;gap:.6rem;flex-wrap:wrap}
+.contact-pills span{display:inline-flex;align-items:center;gap:.5rem;border:1px solid #3a3c41;padding:.4rem .9rem;font-size:.88rem;color:var(--silver)}
+.contact-layout{max-width:1200px;margin:0 auto;padding:7vh 5vw;display:grid;grid-template-columns:1.1fr 1fr;gap:3rem;align-items:start}
+.contact-cards{display:grid;gap:.8rem}
+.contact-card{display:flex;align-items:center;gap:1rem;padding:1.1rem 1.2rem;background:var(--soft);border:1px solid transparent;transition:transform .2s,border-color .2s,box-shadow .2s,background .2s}
+.contact-card:hover{border-color:var(--ink);transform:translateX(6px);box-shadow:0 10px 24px rgba(0,0,0,.1)}
+.contact-icon{flex:none;width:48px;height:48px;display:grid;place-items:center;background:var(--ink);color:#fff;transition:.2s}
+.contact-text{display:flex;flex-direction:column;flex:1;min-width:0}
+.contact-text strong{font:700 1.25rem 'Barlow Condensed',sans-serif;text-transform:uppercase;letter-spacing:.03em}
+.contact-text small{font-size:.95rem;word-break:break-word}.contact-text em{font-style:normal;font-size:.82rem;color:var(--steel)}
+.contact-arrow{flex:none;color:var(--steel);transition:.2s}.contact-card:hover .contact-arrow{color:var(--ink);transform:translate(3px,-3px)}
+.contact-card.featured{background:var(--ink);color:#fff}
+.contact-card.featured .contact-icon{background:#fff;color:var(--ink)}
+.contact-card.featured em,.contact-card.featured .contact-arrow{color:var(--silver)}
+.contact-form{background:#fff;border:1px solid var(--line);border-top:4px solid var(--ink);padding:2rem;display:grid;gap:1rem;box-shadow:0 20px 40px rgba(0,0,0,.06);position:sticky;top:90px}
+.contact-form h2{margin-bottom:0}.contact-form label{display:grid;gap:.4rem;font-weight:600;font-size:.9rem}
+.contact-form input,.contact-form textarea{background:var(--soft);border:1px solid transparent;padding:.85rem 1rem;font:inherit;width:100%;transition:.2s}
+.contact-form input:focus,.contact-form textarea:focus{background:#fff;border-color:var(--ink);outline:none}
+.contact-form textarea{resize:vertical}
+.contact-form .btn{display:inline-flex;align-items:center;justify-content:center;gap:.6rem}
+@media(max-width:860px){.contact-layout{grid-template-columns:1fr}.contact-form{position:static}.contact-mark{display:none}}
