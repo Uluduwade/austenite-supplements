@@ -1,11 +1,20 @@
 import { useState } from 'react'
-import { NavLink, Link } from 'react-router-dom'
+import { Search } from 'lucide-react'
+import { NavLink, Link, useNavigate } from 'react-router-dom'
 import { useCurrency } from '../currency.js'
 import logo from '../public/logo.png'
-const links = [['/', 'Home'], ['/shop', 'Shop'], ['/about', 'About'], ['/search', 'Search'], ['/contact', 'Contact us']]
+const links = [['/', 'Home'], ['/shop', 'Shop'], ['/about', 'About'], ['/contact', 'Contact us']]
 export default function Navbar() {
   const [open, setOpen] = useState(false)
+  const [q, setQ] = useState('')
   const { code, setCurrency } = useCurrency()
+  const navigate = useNavigate()
+  const submit = (e) => {
+    e.preventDefault()
+    const t = q.trim()
+    navigate(t ? '/shop?q=' + encodeURIComponent(t) : '/shop')
+    setOpen(false)
+  }
   return (
     <>
       <div className="promo">100% original UK imported Applied Nutrition. Place your Order</div>
@@ -18,6 +27,10 @@ export default function Navbar() {
           {links.map(([to, t]) => (
             <NavLink key={to} to={to} end={to === '/'} onClick={() => setOpen(false)}>{t}</NavLink>
           ))}
+          <form className="nav-search" role="search" onSubmit={submit}>
+            <Search className="nav-search-icon" size={16} aria-hidden="true" />
+            <input type="search" value={q} onChange={(e) => setQ(e.target.value)} placeholder="Search products" aria-label="Search products" />
+          </form>
           <label className="currency-switcher">
             <span className="sr-only">Currency</span>
             <select value={code} onChange={(e) => setCurrency(e.target.value)} aria-label="Currency">

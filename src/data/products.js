@@ -1,6 +1,6 @@
 // Add a photo to any product with: img: '/images/iso-xp.jpg' (file in /public/images)
 export const CATEGORIES = ['All', 'Protein', 'Performance', 'Wellness', 'Fat Burners']
-export const products = [
+const base = [
   { id: 'iso-xp', name: 'ISO XP', cat: 'Protein', price: 40000, size: '1.8kg', flavours: ['Chocolate Dessert'], img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_qs4yxV3b6w2XT-vxmvToKp-GdV93UvL38Gs5elEvtg&s=10', desc: 'Ultra-clean whey isolate for lean muscle recovery.' },
   { id: 'critical-whey', name: 'Critical Whey', cat: 'Protein', price: 28000, size: '2kg', flavours: ['White Choc Pistachio', 'Chocolate', 'Vanilla'], img: 'https://media.supplementking.ca/wysiwyg/AN_Critical_Whey_5lbs_Critical_Whey_Chocolate_Milkshake.jpg', desc: 'Premium whey protein blend with a serious flavour hit.' },
   { id: 'test-x', name: 'TEST X', cat: 'Performance', price: 12000, size: '120 capsules', flavours: [], img: 'https://cdn.shopify.com/s/files/1/0454/0871/4919/files/Test-X_Capsules.webp?v=1777431069', desc: 'Capsule support for strength and training drive.' },
@@ -14,4 +14,102 @@ export const products = [
   { id: 'omega-3', name: 'Omega 3', cat: 'Wellness', price: 7000, size: '100 capsules', flavours: [], img: 'https://cdn.shopify.com/s/files/1/0454/0871/4919/files/Omega_3_100_Softgels.webp?v=1754779385', desc: 'Daily fish oil for heart, joints and recovery.' },
   { id: 'collagen', name: 'Collagen Peptide', cat: 'Wellness', price: 10000, size: '', flavours: [], img: 'https://cdn.shopify.com/s/files/1/0454/0871/4919/files/Collagen_Peptides_300g_-_Unflavoured.jpg?v=1784280790', desc: 'Collagen support for skin, joints and connective tissue.' }, 
 ]
-export const rs = (n) => 'Rs ' + n.toLocaleString('en-LK')
+// Richer copy shown in the product popup: desc (short pitch), about (longer paragraph),
+// highlights (key benefits), use (how to take it), who (best suited for), tip (small extra note).
+// Check exact serving sizes and macros against the label on the tub before editing numbers in.
+const details = {
+  'iso-xp': {
+    desc: 'Ultra-filtered whey isolate for clean, fast-absorbing protein after training.',
+    about: 'ISO XP is a whey protein isolate, filtered to be higher in protein and lighter in fat and carbs than a standard whey. It mixes smoothly and digests quickly, which makes it a go-to for post-workout recovery or a lean protein top-up any time of day.',
+    highlights: ['Whey isolate: high protein, light on fat and carbs', 'Fast digesting for post-workout recovery', 'Mixes smooth with water or milk', 'Rich chocolate dessert flavour'],
+    use: 'Mix one serving with water or milk after training, or whenever you need to hit your daily protein. Follow the serving size on the label.',
+    who: 'Lifters cutting or keeping carbs low, and anyone wanting a cleaner protein.',
+  },
+  'critical-whey': {
+    desc: 'Premium whey blend with a big protein hit and a flavour range that actually tastes good.',
+    about: 'Critical Whey is a premium whey protein blend built for everyday muscle support. It is a great all-rounder: easy to mix, great in shakes, oats or smoothies, and available in several flavours so it never gets boring.',
+    highlights: ['Premium whey protein blend', 'Three flavours to choose from', 'Easy mixing, great in shakes and recipes', 'Large 2kg tub for long-term value'],
+    use: 'Mix one serving with water or milk once or twice a day, around training or between meals. Follow the serving size on the label.',
+    who: 'Anyone building muscle or topping up daily protein without fuss.',
+  },
+  'test-x': {
+    desc: 'Capsule formula designed to support strength, training drive and performance.',
+    about: 'TEST X is a capsule supplement formulated for lifters who want extra support for training drive and strength. It is convenient, taste-free and easy to fit into a daily routine alongside a solid diet and training plan.',
+    highlights: ['Convenient capsules, no mixing', '120 capsules per pack', 'Made for strength and training drive', 'Pairs well with creatine and protein'],
+    use: 'Take as directed on the label with a meal and water. Do not exceed the recommended amount.',
+    who: 'Experienced lifters looking to support their performance. Not for under 18s.',
+    tip: 'Supplements work best alongside good sleep, food and consistent training.',
+  },
+  'creatine-hydration': {
+    desc: 'Creatine paired with hydration support, for strength and harder sessions.',
+    about: 'Creatine is one of the most researched supplements for strength and power. This version adds hydration support, so you get your creatine and help staying topped up through long, sweaty sessions in one scoop.',
+    highlights: ['Creatine for strength and power output', 'Added hydration support', '30 servings per tub', 'Unflavoured style, mixes into anything'],
+    use: 'Mix one serving with water daily, training day or rest day. Staying consistent matters more than timing.',
+    who: 'Lifters and athletes training hard in warm conditions.',
+    tip: 'Drink plenty of water through the day when taking creatine.',
+  },
+  'creatine-50': {
+    desc: 'Classic creatine in three tasty flavours, for power and repeat performance.',
+    about: 'Creatine is the most proven supplement for strength, power and repeat sprint performance. This flavoured powder takes the chalky taste out of it, so it is easy to take every single day, which is what makes it work.',
+    highlights: ['Supports strength and power output', '50 servings per tub', 'Three flavours: Strawberry, Icy Blue Razz, Apple & Cherry', 'Daily use, no loading phase needed'],
+    use: 'Mix one serving with water once a day, every day. Taking it with a meal or your post-workout shake works well.',
+    who: 'Beginners and experienced lifters alike. It is the best first supplement after protein.',
+    tip: 'Consistency beats timing. Take it daily, even on rest days.',
+  },
+  'amino-fuel': {
+    desc: 'Flavoured amino acid drink to keep you fuelled through training.',
+    about: 'Amino Fuel is a flavoured amino acid mix designed to be sipped during your workout. It is a light, refreshing way to support training and recovery, especially when you train fasted or for longer sessions.',
+    highlights: ['Amino acids to sip during training', 'Refreshing flavoured drink', '30 servings per tub', 'Great for fasted or long sessions'],
+    use: 'Mix one serving with water and sip before or during your workout. Follow the serving size on the label.',
+    who: 'Anyone training fasted, doing long sessions or wanting a tasty gym drink.',
+  },
+  'unflavoured-500': {
+    desc: 'Pure unflavoured creatine monohydrate in a big 100-serving tub.',
+    about: 'Plain creatine monohydrate with nothing added. It dissolves into water, juice, shakes or even your coffee without changing the taste. The 500g tub gives you 100 servings, the best value way to stay consistent.',
+    highlights: ['Pure creatine monohydrate', '500g tub, 100 servings', 'No flavour, mixes into anything', 'Best value for long-term use'],
+    use: 'Mix one serving (around 3 to 5g, see label) into water, juice or a shake once a day, every day.',
+    who: 'Anyone who wants simple, no-nonsense creatine at the best price per serving.',
+    tip: 'Stir well and drink it straight away for the best mix.',
+  },
+  'unflavoured-250': {
+    desc: 'Pure unflavoured creatine monohydrate in a smaller 50-serving tub.',
+    about: 'The same pure creatine monohydrate in a smaller 250g tub. Ideal if you are trying creatine for the first time or want a pack that is easy to travel with.',
+    highlights: ['Pure creatine monohydrate', '250g tub, 50 servings', 'No flavour, mixes into anything', 'A great starter size'],
+    use: 'Mix one serving (around 3 to 5g, see label) into water, juice or a shake once a day, every day.',
+    who: 'First-time creatine users and anyone who prefers a compact tub.',
+    tip: 'Want better value? Our 500g tub gives you double the servings.',
+  },
+  'shred-x': {
+    desc: 'Thermogenic capsules to support your cutting phase and daily energy.',
+    about: 'Shred X is a thermogenic fat burner in capsule form, made to support your cut alongside a calorie-controlled diet and regular training. It is designed to help with energy and focus while you are in a deficit.',
+    highlights: ['Thermogenic formula for your cutting phase', '90 capsules per pack', 'Supports energy and focus in a deficit', 'Easy capsules, no mixing'],
+    use: 'Take as directed on the label with water, earlier in the day. Do not exceed the recommended amount.',
+    who: 'Adults on a structured diet and training plan. Not for under 18s.',
+    tip: 'Check the label for stimulant content and avoid taking it late in the evening. Not a substitute for diet and training.',
+  },
+  shilajit: {
+    desc: 'Traditional mineral-rich resin, in easy-to-take capsules.',
+    about: 'Shilajit is a traditional mineral-rich resin, long used in wellness routines. These capsules make it simple to take, with none of the sticky handling or strong taste of the raw resin.',
+    highlights: ['Traditional mineral-rich resin', 'Easy capsules, no sticky resin', '90 capsules per pack', 'Fits easily into a daily wellness routine'],
+    use: 'Take as directed on the label with water and food. Do not exceed the recommended amount.',
+    who: 'Adults looking for a simple daily wellness supplement.',
+    tip: 'If you are pregnant, on medication or have a medical condition, check with your doctor first.',
+  },
+  'omega-3': {
+    desc: 'Daily fish oil softgels to support heart, joints and recovery.',
+    about: 'Omega 3 fish oil is a daily staple for general health, supporting your heart, joints and recovery. These softgels are an easy way to cover the omega 3 many of us miss in our diet, especially if we do not eat much oily fish.',
+    highlights: ['Fish oil omega 3 softgels', '100 softgels per pack', 'Supports heart and joint health', 'Easy daily habit'],
+    use: 'Take as directed on the label with a meal and water, for better absorption.',
+    who: 'Anyone who rarely eats oily fish, and active people looking after their joints.',
+  },
+  collagen: {
+    desc: 'Collagen peptides to support skin, joints and connective tissue.',
+    about: 'Collagen is a key protein in your skin, joints, tendons and ligaments. These peptides are broken down so they dissolve easily, making them simple to stir into a drink as part of a daily routine for skin, joint and connective tissue support.',
+    highlights: ['Collagen peptides that dissolve easily', 'Supports skin, joints and connective tissue', 'Unflavoured, mixes into drinks and food', 'Easy daily habit'],
+    use: 'Stir one serving into water, coffee, a smoothie or a shake once a day. Follow the serving size on the label.',
+    who: 'Active people looking after their joints and anyone focused on skin health.',
+    tip: 'Results come from steady daily use over weeks, not days.',
+  },
+}
+export const products = base.map((p) => ({ ...p, ...details[p.id] }))
+export const rs =(n) => 'Rs ' + n.toLocaleString('en-LK')
