@@ -17,7 +17,7 @@ export default function Navbar() {
   }
   return (
     <>
-      <div className="promo">100% original UK imported Applied Nutrition. Place your Order</div>
+      
       <header className="nav">
         <Link to="/" className="logo" onClick={() => setOpen(false)} aria-label="Austenite Supplements home">
           <img className="logo-image" src={logo} alt="Austenite Supplements" />
