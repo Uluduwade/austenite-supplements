@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import { EmailIcon, InstagramIcon, TikTokIcon } from './SocialIcons.jsx'
 import { CONTACT } from '../config.js'
-import logo from '../public/logo.png'
+import logo from '../public/logo-footer.png'
 export default function Footer() {
   return (
     <footer className="foot">
@@ -9,7 +9,7 @@ export default function Footer() {
         <Link to="/" className="logo" aria-label="Austenite Supplements home">
           <img className="logo-image" src={logo} alt="Austenite Supplements" />
         </Link>
-        <p>Original UK Applied Nutrition Products</p>
+        {/* <p>Original UK Applied Nutrition Products</p> */}
       </div>
       <div className="fl"><Link to="/shop">Shop</Link><Link to="/about">About us</Link><Link to="/contact">Contact us</Link><Link to="/privacy">Privacy Policy</Link></div>
       <div className="fl foot-socials">

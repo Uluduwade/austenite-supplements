@@ -46,6 +46,7 @@ export default function ProductCard({ p, onOpen }) {
       onMouseLeave={reset}
       onClick={() => { hide(); onOpen(p) }}
     >
+      {p.soon && <span className="soon-badge">Coming soon</span>}
       <Tub p={p} />
       <h3>{p.name}</h3>
       <p className="muted">{p.size}</p>

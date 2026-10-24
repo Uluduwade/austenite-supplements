@@ -14,7 +14,11 @@ export default function ProductModal({ p, onClose }) {
     document.body.style.overflow = 'hidden'
     return () => { window.removeEventListener('keydown', k); document.body.style.overflow = '' }
   }, [onClose])
-  const msg = `Hi Austenite, I'd like to order ${qty} x ${p.name} ${p.size}${flavour ? ' (' + flavour + ')' : ''}.`
+  // A flavour can have its own photo via p.flavourImg; otherwise the main product image is used
+  const art = { ...p, img: (p.flavourImg && p.flavourImg[flavour]) || p.img }
+  const msg = p.soon
+    ? `Hi Austenite, please let me know when ${p.name} ${p.size}${flavour ? ' (' + flavour + ')' : ''} is available.`
+    : `Hi Austenite, I'd like to order ${qty} x ${p.name} ${p.size}${flavour ? ' (' + flavour + ')' : ''}.`
   // Portal to <body> so the popup escapes <main>'s stacking context and sits above the sticky navbar
   return createPortal(
     <div className="overlay" onClick={onClose}>
@@ -22,7 +26,8 @@ export default function ProductModal({ p, onClose }) {
         <button className="x" onClick={onClose} aria-label="Close"><X size={16} aria-hidden="true" /></button>
         <div className="modal-art">
           <span className="modal-cat">{p.cat}</span>
-          <Tub p={p} big />
+          {p.soon && <span className="soon-badge">Coming soon</span>}
+          <Tub p={art} big />
           <div className="modal-badges">
             <span><ShieldCheck size={15} aria-hidden="true" /> 100% original</span>
             <span><Plane size={15} aria-hidden="true" /> UK imported</span>
@@ -60,7 +65,7 @@ export default function ProductModal({ p, onClose }) {
             <button onClick={() => setQty(Math.max(1, qty - 1))} aria-label="Decrease quantity">-</button><span>{qty}</span><button onClick={() => setQty(qty + 1)} aria-label="Increase quantity">+</button>
             <b className="price">{formatPrice(p.price * qty, code)}</b>
           </div>
-          <a className="btn modal-order" href={`https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent(msg)}`} target="_blank" rel="noreferrer"><MessageCircle size={18} aria-hidden="true" /> Order on WhatsApp</a>
+          <a className="btn modal-order" href={`https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent(msg)}`} target="_blank" rel="noreferrer"><MessageCircle size={18} aria-hidden="true" /> {p.soon ? 'Notify me on WhatsApp' : 'Order on WhatsApp'}</a>
           </div>
         </div>
       </div>

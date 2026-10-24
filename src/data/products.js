@@ -1,18 +1,22 @@
-// Add a photo to any product with: img: '/images/iso-xp.jpg' (file in /public/images)
+// Product photos are transparent 800x800 cutouts in /public/products, named by product id (e.g. img: '/products/iso-xp.webp')
+// To show a different photo per flavour, add flavourImg keyed by the exact flavour name (see `flavourImages` below).
 export const CATEGORIES = ['All', 'Protein', 'Performance', 'Wellness', 'Fat Burners']
 const base = [
-  { id: 'iso-xp', name: 'ISO XP', cat: 'Protein', price: 40000, size: '1.8kg', flavours: ['Chocolate Dessert'], img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_qs4yxV3b6w2XT-vxmvToKp-GdV93UvL38Gs5elEvtg&s=10', desc: 'Ultra-clean whey isolate for lean muscle recovery.' },
-  { id: 'critical-whey', name: 'Critical Whey', cat: 'Protein', price: 28000, size: '2kg', flavours: ['White Choc Pistachio', 'Chocolate', 'Vanilla'], img: 'https://media.supplementking.ca/wysiwyg/AN_Critical_Whey_5lbs_Critical_Whey_Chocolate_Milkshake.jpg', desc: 'Premium whey protein blend with a serious flavour hit.' },
-  { id: 'test-x', name: 'TEST X', cat: 'Performance', price: 12000, size: '120 capsules', flavours: [], img: 'https://cdn.shopify.com/s/files/1/0454/0871/4919/files/Test-X_Capsules.webp?v=1777431069', desc: 'Capsule support for strength and training drive.' },
-  { id: 'creatine-hydration', name: 'Creatine + Hydration', cat: 'Performance', price: 10000, size: '30 servings', flavours: ['Non flavoured'], img: 'https://m.media-amazon.com/images/I/71EaYYVBcbL._AC_UF894,1000_QL80_.jpg', desc: 'Creatine with added hydration support for harder sessions.' },
-  { id: 'creatine-50', name: 'Creatine', cat: 'Performance', price: 8000, size: '50 servings', flavours: ['Strawberry', 'Icy Blue Razz', 'Apple & Cherry'], img: 'https://m.media-amazon.com/images/I/81wT2OBpgQL.jpg', desc: 'Classic creatine for power and repeat performance.' },
-  { id: 'amino-fuel', name: 'Amino Fuel', cat: 'Performance', price: 10500, size: '30 servings', flavours: [], img: 'https://www.landyschemist.com/media/catalog/product/cache/2ebe87a33dce843eee8d32582a0f0c98/a/p/applied-nutrition-amino-fuel-cherry-limeade-390g.jpg', desc: 'Intra-workout amino acids to keep you fuelled.' },
-  { id: 'unflavoured-500', name: 'Creatine Monohydrate unflavoured 100 servings', cat: 'Performance', price: 12500, size: '500g, 100 servings', flavours: ['Unflavoured'], img: 'https://m.media-amazon.com/images/I/611rB1ngKwL._AC_UF1000,1000_QL80_.jpg',desc: 'Pure, unflavoured, mixes into anything.' },
-  { id: 'unflavoured-250', name: 'Creatine Monohydrate unflavoured', cat: 'Performance', price: 7500, size: '250g, 50 servings', flavours: ['Unflavoured'], img: 'https://digitalcontent.api.tesco.com/v2/media/ghs/d3262ebe-5acb-49d3-af11-15dcb781e1dc/1a347639-f88d-4f60-b423-c4f3d50f009b_1868854309.jpeg',desc: 'The smaller pack of our unflavoured powder.' },
-  { id: 'shred-x', name: 'Shred X Fat Burner', cat: 'Fat Burners', price: 9500, size: '90 capsules', flavours: [], img: 'https://cloudinary.images-iherb.com/image/upload/f_auto,q_auto:eco/images/anh/anh20706/l/8.jpg', desc: 'Thermogenic capsules to support your cut.' },
-  { id: 'shilajit', name: 'Shilajit', cat: 'Wellness', price: 7500, size: '90 capsules', flavours: [], img: 'https://cdn.shopify.com/s/files/1/0454/0871/4919/files/Shilajit_Capsules.webp?v=1777431008', desc: 'Traditional mineral-rich resin in easy capsules.' },
-  { id: 'omega-3', name: 'Omega 3', cat: 'Wellness', price: 7000, size: '100 capsules', flavours: [], img: 'https://cdn.shopify.com/s/files/1/0454/0871/4919/files/Omega_3_100_Softgels.webp?v=1754779385', desc: 'Daily fish oil for heart, joints and recovery.' },
-  { id: 'collagen', name: 'Collagen Peptide', cat: 'Wellness', price: 10000, size: '', flavours: [], img: 'https://cdn.shopify.com/s/files/1/0454/0871/4919/files/Collagen_Peptides_300g_-_Unflavoured.jpg?v=1784280790', desc: 'Collagen support for skin, joints and connective tissue.' }, 
+  { id: 'iso-xp', name: 'ISO XP', cat: 'Protein', price: 34380, size: '1.8kg', flavours: ['Chocolate Dessert'], img: '/products/iso-xp.webp', desc: 'Ultra-clean whey isolate for lean muscle recovery.' },
+  { id: 'essential-protein', name: 'Essential Protein', cat: 'Protein', price: 25000, size: '1.6kg', flavours: ['Double Chocolate'], img: '/products/essential-protein.webp', soon: true, desc: 'Complete everyday protein with 22g per serving.' },
+  { id: 'critical-whey', name: 'Critical Whey', cat: 'Protein', price: 27580, size: '2kg', flavours: ['White Choc Pistachio', 'Chocolate', 'Vanilla'], img: '/products/critical-whey.webp', desc: 'Premium whey protein blend with a serious flavour hit.' },
+  { id: 'critical-mass', name: 'Critical Mass', cat: 'Protein', price: 28000, size: '6kg', flavours: ['Chocolate'], img: '/products/critical-mass.webp', desc: 'High calorie mass gainer for hard gainers building size.' },
+  { id: 'test-x', name: 'TEST X', cat: 'Performance', price: 13980, size: '120 capsules', flavours: [], img: '/products/test-x.webp', desc: 'Capsule support for strength and training drive.' },
+  { id: 'creatine-hydration', name: 'Creatine + Hydration', cat: 'Performance', price: 10000, size: '30 servings', flavours: ['Non flavoured'], img: '/products/creatine-hydration.webp', desc: 'Creatine with added hydration support for harder sessions.' },
+  { id: 'creatine-50', name: 'Creatine', cat: 'Performance', price: 7580, size: '50 servings', flavours: ['Strawberry & Raspberry', 'Icy Blue Razz', 'Apple & Cherry'], img: '/products/creatine-50.webp', desc: 'Classic creatine for power and repeat performance.' },
+  { id: 'amino-fuel', name: 'Amino Fuel', cat: 'Performance', price: 10500, size: '30 servings', flavours: [], img: '/products/amino-fuel.webp', desc: 'Intra-workout amino acids to keep you fuelled.' },
+  { id: 'abe', name: 'ABE Pre Workout', cat: 'Performance', price: 11180, size: '', flavours: ['Icy Blue', 'Cherry Cola', 'Twisted Citrus', 'Candy Icy Blast', 'Bubblegum Crush'], img: '/products/abe-icy-blue.webp', desc: 'Pre-workout for energy, focus and drive in five bold flavours.' },
+  { id: 'unflavoured-500', name: 'Creatine Monohydrate unflavoured 100 servings', cat: 'Performance', price: 11980, size: '500g, 100 servings', flavours: ['Unflavoured'], img: '/products/unflavoured-500.webp',desc: 'Pure, unflavoured, mixes into anything.' },
+  { id: 'unflavoured-250', name: 'Creatine Monohydrate unflavoured', cat: 'Performance', price: 7580, size: '250g, 50 servings', flavours: ['Unflavoured'], img: '/products/unflavoured-250.webp',desc: 'The smaller pack of our unflavoured powder.' },
+  { id: 'shred-x', name: 'Shred X Fat Burner', cat: 'Fat Burners', price: 9500, size: '90 capsules', flavours: [], img: '/products/shred-x.webp', desc: 'Thermogenic capsules to support your cut.' },
+  { id: 'shilajit', name: 'Shilajit', cat: 'Wellness', price: 7500, size: '90 capsules', flavours: [], img: '/products/shilajit.webp', desc: 'Traditional mineral-rich resin in easy capsules.' },
+  { id: 'omega-3', name: 'Omega 3', cat: 'Wellness', price: 7000, size: '100 capsules', flavours: [], img: '/products/omega-3.webp', desc: 'Daily fish oil for heart, joints and recovery.' },
+  { id: 'collagen', name: 'Collagen Peptide', cat: 'Wellness', price: 9980, size: '', flavours: [], img: '/products/collagen.webp', desc: 'Collagen support for skin, joints and connective tissue.' }, 
 ]
 // Richer copy shown in the product popup: desc (short pitch), about (longer paragraph),
 // highlights (key benefits), use (how to take it), who (best suited for), tip (small extra note).
@@ -25,12 +29,28 @@ const details = {
     use: 'Mix one serving with water or milk after training, or whenever you need to hit your daily protein. Follow the serving size on the label.',
     who: 'Lifters cutting or keeping carbs low, and anyone wanting a cleaner protein.',
   },
+  'essential-protein': {
+    desc: 'Complete everyday protein with 22g per serving and a rich double chocolate flavour.',
+    about: 'Essential Protein is an everyday protein powder with a complete amino acid profile, giving you 22g of protein and 117 calories per serving. A 1.6kg tub gives you 50 servings, so it is an easy, good-value way to hit your daily protein.',
+    highlights: ['22g protein and 117 calories per serving', 'Complete amino acid profile', '50 servings per 1.6kg tub', 'Double chocolate flavour'],
+    use: 'Mix one serving with water or milk once or twice a day, after training or between meals. Follow the serving size on the label.',
+    who: 'Anyone building muscle or topping up daily protein without fuss.',
+    tip: 'Coming soon. Message us on WhatsApp and we will let you know when it lands.',
+  },
   'critical-whey': {
     desc: 'Premium whey blend with a big protein hit and a flavour range that actually tastes good.',
     about: 'Critical Whey is a premium whey protein blend built for everyday muscle support. It is a great all-rounder: easy to mix, great in shakes, oats or smoothies, and available in several flavours so it never gets boring.',
     highlights: ['Premium whey protein blend', 'Three flavours to choose from', 'Easy mixing, great in shakes and recipes', 'Large 2kg tub for long-term value'],
     use: 'Mix one serving with water or milk once or twice a day, around training or between meals. Follow the serving size on the label.',
     who: 'Anyone building muscle or topping up daily protein without fuss.',
+  },
+  'critical-mass': {
+    desc: 'High calorie mass gainer with 59g protein per serving, for building size.',
+    about: 'Critical Mass is a high calorie gainer made for people who struggle to eat enough to grow. Each serving gives you 59g of protein and 902 calories, so one shake adds a big chunk of your daily intake. The 6kg bag gives you 25 servings.',
+    highlights: ['59g protein and 902 calories per serving', 'High calorie gainer for building size', '6kg resealable bag, 25 servings', 'Rich chocolate flavour'],
+    use: 'Mix with water or milk once or twice a day, between meals or after training. Follow the serving size on the label.',
+    who: 'Hard gainers and anyone who needs extra calories to put on size.',
+    tip: 'Check the label for the recommended serving, as a full serving is a large shake. You can split it across two smaller shakes.',
   },
   'test-x': {
     desc: 'Capsule formula designed to support strength, training drive and performance.',
@@ -51,7 +71,7 @@ const details = {
   'creatine-50': {
     desc: 'Classic creatine in three tasty flavours, for power and repeat performance.',
     about: 'Creatine is the most proven supplement for strength, power and repeat sprint performance. This flavoured powder takes the chalky taste out of it, so it is easy to take every single day, which is what makes it work.',
-    highlights: ['Supports strength and power output', '50 servings per tub', 'Three flavours: Strawberry, Icy Blue Razz, Apple & Cherry', 'Daily use, no loading phase needed'],
+    highlights: ['Supports strength and power output', '50 servings per tub', 'Three flavours: Strawberry & Raspberry, Icy Blue Razz, Apple & Cherry', 'Daily use, no loading phase needed'],
     use: 'Mix one serving with water once a day, every day. Taking it with a meal or your post-workout shake works well.',
     who: 'Beginners and experienced lifters alike. It is the best first supplement after protein.',
     tip: 'Consistency beats timing. Take it daily, even on rest days.',
@@ -62,6 +82,14 @@ const details = {
     highlights: ['Amino acids to sip during training', 'Refreshing flavoured drink', '30 servings per tub', 'Great for fasted or long sessions'],
     use: 'Mix one serving with water and sip before or during your workout. Follow the serving size on the label.',
     who: 'Anyone training fasted, doing long sessions or wanting a tasty gym drink.',
+  },
+  abe: {
+    desc: 'Pre-workout for energy, focus and drive, in five bold flavours.',
+    about: 'ABE is a pre-workout powder made to get you switched on before you train. Mix it up 20 to 30 minutes before your session for a boost in energy and focus, in a choice of flavours that are easy to drink and easy to stick with.',
+    highlights: ['Pre-workout for energy, focus and training drive', 'Five flavours: Icy Blue, Cherry Cola, Twisted Citrus, Candy Icy Blast, Bubblegum Crush', 'Mixes easily with water', 'Ideal before heavy or high-intensity sessions'],
+    use: 'Mix one serving with water 20 to 30 minutes before training. Follow the serving size on the label and do not exceed the recommended amount.',
+    who: 'Experienced lifters and athletes who want a boost before training. Not for under 18s.',
+    tip: 'Contains stimulants, so check the label for caffeine content and avoid taking it late in the evening.',
   },
   'unflavoured-500': {
     desc: 'Pure unflavoured creatine monohydrate in a big 100-serving tub.',
@@ -111,5 +139,25 @@ const details = {
     tip: 'Results come from steady daily use over weeks, not days.',
   },
 }
-export const products = base.map((p) => ({ ...p, ...details[p.id] }))
+// Per-flavour photos, e.g. abe: { 'Icy Blue': '/products/abe-icy-blue.webp' }. Flavours not listed use the main img.
+const flavourImages = {
+  'critical-whey': {
+    'White Choc Pistachio': '/products/critical-whey-white-choc-pistachio.webp',
+    Chocolate: '/products/critical-whey.webp',
+    Vanilla: '/products/critical-whey-vanilla-ice-cream.webp',
+  },
+  'creatine-50': {
+    'Strawberry & Raspberry': '/products/creatine-50-strawberry.webp',
+    'Icy Blue Razz': '/products/creatine-50-icy-blue-razz.webp',
+    'Apple & Cherry': '/products/creatine-50.webp',
+  },
+  abe: {
+    'Icy Blue': '/products/abe-icy-blue.webp',
+    'Cherry Cola': '/products/abe-cherry-cola.webp',
+    'Twisted Citrus': '/products/abe-twisted-citrus.webp',
+    'Candy Icy Blast': '/products/abe-candy-icy-blast.webp',
+    'Bubblegum Crush': '/products/abe-bubblegum-crush.webp',
+  },
+}
+export const products = base.map((p) => ({ ...p, ...details[p.id], flavourImg: flavourImages[p.id] }))
 export const rs =(n) => 'Rs ' + n.toLocaleString('en-LK')
