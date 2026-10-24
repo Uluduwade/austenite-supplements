@@ -11,13 +11,17 @@ export default function Shop() {
   if (q) items = items.filter((p) => [p.name, p.cat, p.size, p.desc, ...p.flavours].join(' ').toLowerCase().includes(q))
   if (sort === 'low') items = [...items].sort((a, b) => a.price - b.price)
   if (sort === 'high') items = [...items].sort((a, b) => b.price - a.price)
+  if (sort === 'az') items = [...items].sort((a, b) => a.name.localeCompare(b.name))
+  if (sort === 'za') items = [...items].sort((a, b) => b.name.localeCompare(a.name))
   return (
     <section className="sec">
       <h1>Shop</h1>
       <div className="bar">
         <div className="chips">{CATEGORIES.map((c) => <button key={c} className={'chip' + (c === cat ? ' on' : '')} onClick={() => setCat(c)}>{c}</button>)}</div>
         <select value={sort} onChange={(e) => setSort(e.target.value)} aria-label="Sort">
-          <option value="default">Featured</option><option value="low">Price, low to high</option><option value="high">Price, high to low</option>
+          <option value="default">Featured</option>
+          <option value="az">Name, A to Z</option><option value="za">Name, Z to A</option>
+          <option value="low">Price, low to high</option><option value="high">Price, high to low</option>
         </select>
       </div>
       {q && (

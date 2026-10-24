@@ -13,7 +13,7 @@ const goals = [
 ]
 const perks = [
   [ShieldCheck, 'Authentic only', 'Sealed Applied Nutrition, nothing relabelled.'],
-  [Plane, 'Direct UK import', 'Straight from the UK to Sri Lanka.'],
+  // [Plane, 'Direct UK import', 'Straight from the UK to Sri Lanka.'],
   [BadgeCheck, 'Elite formulas', 'No fillers, just premium formulations.'],
   [MessageCircle, 'Real support', 'A person replies within 24 hours.'],
 ]

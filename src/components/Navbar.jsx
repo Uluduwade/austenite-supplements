@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Search } from 'lucide-react'
+import { Search, ArrowRight } from 'lucide-react'
 import { NavLink, Link, useNavigate } from 'react-router-dom'
 import { useCurrency } from '../currency.js'
 import logo from '../public/logo.png'
@@ -30,6 +30,7 @@ export default function Navbar() {
           <form className="nav-search" role="search" onSubmit={submit}>
             <Search className="nav-search-icon" size={16} aria-hidden="true" />
             <input type="search" value={q} onChange={(e) => setQ(e.target.value)} placeholder="Search products" aria-label="Search products" />
+            <button type="submit" className="nav-search-btn" aria-label="Search"><ArrowRight size={16} aria-hidden="true" /></button>
           </form>
           <label className="currency-switcher">
             <span className="sr-only">Currency</span>

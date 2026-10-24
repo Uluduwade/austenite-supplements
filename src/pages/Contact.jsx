@@ -1,5 +1,6 @@
 import { useState } from 'react'
-import { ArrowUpRight, Camera, Clock3, Mail, MessageCircle, Music2, Phone, Send, ShieldCheck, Truck } from 'lucide-react'
+import { ArrowUpRight, Clock3, MessageCircle, Phone, Send, ShieldCheck, Truck } from 'lucide-react'
+import { EmailIcon, InstagramIcon, TikTokIcon } from '../components/SocialIcons.jsx'
 import { CONTACT } from '../config.js'
 import './contact.css'
 
@@ -12,9 +13,9 @@ export default function Contact() {
   const channels = [
     { icon: MessageCircle, label: 'WhatsApp', value: CONTACT.phone, href: 'https://wa.me/' + CONTACT.whatsapp, note: 'Fastest way to order', featured: true },
     { icon: Phone, label: 'Call ' + CONTACT.person, value: CONTACT.phone, href: 'tel:' + CONTACT.phone.replace(/\s/g, ''), note: 'Speak with our team' },
-    { icon: Mail, label: 'Email', value: CONTACT.email, href: 'mailto:' + CONTACT.email, note: 'For detailed enquiries' },
-    { icon: Camera, label: 'Instagram', value: (CONTACT.instagramHandle || '@ganithmalage'), href: CONTACT.instagram, note: 'Follow the latest drops' },
-    { icon: Music2, label: 'TikTok', value: (CONTACT.tiktokHandle || '@ganith_malage'), href: CONTACT.tiktok, note: 'See us in action' },
+    { icon: EmailIcon, label: 'Email', value: CONTACT.email, href: 'mailto:' + CONTACT.email, note: 'For detailed enquiries' },
+    { icon: InstagramIcon, label: 'Instagram', value: (CONTACT.instagramHandle || '@ganithmalage'), href: CONTACT.instagram, note: 'Follow the latest drops' },
+    { icon: TikTokIcon, label: 'TikTok', value: (CONTACT.tiktokHandle || '@ganith_malage'), href: CONTACT.tiktok, note: 'See us in action' },
   ]
   return (
     <div className="contact-page">
@@ -55,7 +56,7 @@ export default function Contact() {
           <p className="kicker">Send an enquiry</p>
           <h2>Tell us what you need.</h2>
           <p className="muted">We&apos;ll reply with a clear answer and the right recommendation.</p>
-          <label>Your name<input required placeholder="e.g. Alex Perera" value={f.name} onChange={(e) => setF({ ...f, name: e.target.value })} /></label>
+          <label>Your name<input required placeholder="e.g. Alex Jones" value={f.name} onChange={(e) => setF({ ...f, name: e.target.value })} /></label>
           <label>Your message<textarea required rows="5" placeholder="Ask about products, flavours or delivery..." value={f.message} onChange={(e) => setF({ ...f, message: e.target.value })} /></label>
           <button className="btn" type="submit"><Send size={17} /> Send email</button>
         </form>

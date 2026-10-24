@@ -6,6 +6,7 @@ import Home from './pages/Home.jsx'
 import Shop from './pages/Shop.jsx'
 import About from './pages/About.jsx'
 import Contact from './pages/Contact.jsx'
+import Privacy from './pages/Privacy.jsx'
 import GhostCursor from './components/GhostCursor.jsx'
 import PatternWaves from './components/PatternWaves.jsx'
 
@@ -54,6 +55,7 @@ export default function App() {
           <Route path="/shop" element={<Shop />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/privacy" element={<Privacy />} />
           <Route path="*" element={<Home />} />
         </Routes>
       </main>

@@ -20,7 +20,8 @@ export default function About() {
       <section className="about-hero">
         <p className="tag">Our story</p>
         <h1>About Austenite Supplements</h1>
-        <p className="about-quote">“Train Harder Recover Faster”</p>
+        <p className="about-quote">“Train Harder 
+          <br></br>Recover Faster”</p>
       </section>
 
       <section className="sec about-intro">
@@ -59,9 +60,9 @@ export default function About() {
       </section>
 
       <section className="sec">
-        <p className="section-kicker">Official collection</p>
+        {/* <p className="section-kicker">Official collection</p>
         <h2>The Official Applied Nutrition Collection at Austenite</h2>
-        <ProductGrid items={products} />
+        <ProductGrid items={products} /> */}
         <div className="row about-cta">
           <Link className="btn" to="/shop">Shop the collection</Link>
           <Link className="btn ghost" to="/contact">Talk to us</Link>
