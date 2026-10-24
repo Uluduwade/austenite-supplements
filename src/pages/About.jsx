@@ -18,7 +18,6 @@ export default function About() {
   return (
     <>
       <section className="about-hero">
-        <p className="tag">Our story</p>
         <h1>About Austenite Supplements</h1>
         <p className="about-quote">“Train Harder 
           <br></br>Recover Faster”</p>
@@ -36,7 +35,6 @@ export default function About() {
           <p>Named after austenite, the resilient, high-strength crystalline structure that gives advanced steel its toughness. Our store is dedicated to fuelling individuals who demand peak output and durability.</p>
         </aside>
       </section>
-
       <section className="sec">
         <p className="section-kicker">Our story &amp; purpose</p>
         <h2>Built for trust</h2>

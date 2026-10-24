@@ -22,13 +22,12 @@ export default function Contact() {
       <section className="contact-hero">
         <div className="contact-hero-in">
           <div>
-            <p className="tag light">Customer care</p>
             <h1>Let&apos;s talk supplements.</h1>
             <p className="lead">Need help choosing a flavour, checking stock or arranging delivery? {CONTACT.person} and the team are ready to help.</p>
             <div className="contact-pills">
               <span><Clock3 size={16} /> Replies within 24 hours</span>
               <span><ShieldCheck size={16} /> 100% original UK stock</span>
-              <span><Truck size={16} /> Island-wide delivery</span>
+              {/* <span><Truck size={16} /> Island-wide delivery</span> */}
             </div>
           </div>
           <MessageCircle className="contact-mark" size={150} strokeWidth={1} aria-hidden="true" />

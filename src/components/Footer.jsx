@@ -11,7 +11,7 @@ export default function Footer() {
         </Link>
         {/* <p>Original UK Applied Nutrition Products</p> */}
       </div>
-      <div className="fl"><Link to="/shop">Shop</Link><Link to="/about">About us</Link><Link to="/contact">Contact us</Link><Link to="/privacy">Privacy Policy</Link></div>
+      <div className="fl"><Link to="/shop">Shop</Link><Link to="/about">About</Link><Link to="/contact">Contact us</Link><Link to="/privacy">Privacy Policy</Link></div>
       <div className="fl foot-socials">
         <a href={CONTACT.instagram} target="_blank" rel="noreferrer" aria-label="Instagram"><InstagramIcon size={19} /><span>Instagram</span></a>
         <a href={CONTACT.tiktok} target="_blank" rel="noreferrer" aria-label="TikTok"><TikTokIcon size={19} /><span>TikTok</span></a>

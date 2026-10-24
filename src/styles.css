@@ -144,6 +144,7 @@ background:linear-gradient(90deg,#000,#26272a 35%,#0b0b0c 70%,#000);border-radiu
 .about-hero{padding:9vh 5vw 7vh;text-align:left;background:linear-gradient(180deg,rgba(255,255,255,.78),rgba(243,244,245,.5));border-bottom:1px solid var(--line)}
 .about-hero h1{max-width:none;margin:1rem 0 .8rem;font-size:clamp(2rem,5vw,3.5rem)}.about-quote{font:700 clamp(1.4rem,3vw,2rem) 'Barlow Condensed',sans-serif;text-transform:uppercase;letter-spacing:.14em;color:var(--steel)}
 .about-intro{display:grid;grid-template-columns:1.3fr 1fr;gap:3rem;align-items:start}
+.sec.about-intro{padding-bottom:3vh}.sec.about-intro+.sec{padding-top:3vh}
 .about-copy .lead{max-width:none;font-size:1.3rem}.about-copy p+p{margin-top:1rem}
 .about-name{position:relative;overflow:hidden;padding:2rem;border-radius:var(--r-lg);background:var(--ink);color:#fff;display:flex;flex-direction:column;gap:.8rem;box-shadow:0 20px 40px rgba(12,11,11,.22)}
 .about-name p{color:var(--silver)}.about-name h3{font-size:1.8rem}.about-name-icon{color:var(--silver);opacity:.9}
@@ -232,3 +233,13 @@ img{max-width:100%}
 /* coming soon badge (product card + popup) */
 .soon-badge{position:absolute;top:.8rem;right:.8rem;z-index:2;background:var(--ink);color:#fff;font-size:.7rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:.3rem .75rem;border-radius:var(--pill);pointer-events:none}
 .modal-art .soon-badge{top:1.2rem;right:1.2rem}
+
+/* currency dropdown with flag images */
+.currency-switcher{position:relative}
+.currency-btn{display:inline-flex;align-items:center;gap:.5rem;padding:.35rem .6rem;background:var(--ink);color:var(--paper);border:1px solid rgba(255,255,255,.55);font:600 .9rem 'Inter',sans-serif;letter-spacing:.04em;cursor:pointer;transition:border-color .2s,box-shadow .2s}
+.currency-btn:hover{border-color:var(--paper)}.currency-btn:focus-visible{border-color:var(--paper);box-shadow:0 0 0 3px rgba(255,255,255,.18);outline:none}
+.currency-btn img,.currency-menu img{display:block;width:22px;height:11px;object-fit:cover;border-radius:2px;box-shadow:0 0 0 1px rgba(255,255,255,.25)}
+.currency-menu{position:absolute;top:calc(100% + .35rem);right:0;min-width:100%;list-style:none;padding:.25rem;background:var(--ink);border:1px solid rgba(255,255,255,.35);z-index:30;box-shadow:0 12px 28px rgba(0,0,0,.35)}
+.currency-menu button{display:flex;align-items:center;gap:.5rem;width:100%;padding:.4rem .55rem;background:transparent;color:var(--paper);border:0;font:500 .9rem 'Inter',sans-serif;letter-spacing:.04em;cursor:pointer;text-align:left}
+.currency-menu button:hover,.currency-menu button.on{background:rgba(255,255,255,.12)}
+@media(max-width:820px){.currency-menu{right:auto;left:0}}

@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { createPortal } from 'react-dom'
 import { Check, ShieldCheck, Plane, Utensils, Users, Lightbulb, MessageCircle, X } from 'lucide-react'
 import Tub from './Tub.jsx'
-import { formatPrice, useCurrency } from '../currency.js'
+import { formatPrice, productPrice, useCurrency } from '../currency.js'
 import { CONTACT } from '../config.js'
 export default function ProductModal({ p, onClose }) {
   const [flavour, setFlavour] = useState(p.flavours[0] || '')
@@ -63,7 +63,7 @@ export default function ProductModal({ p, onClose }) {
           )}
           <div className="qty">
             <button onClick={() => setQty(Math.max(1, qty - 1))} aria-label="Decrease quantity">-</button><span>{qty}</span><button onClick={() => setQty(qty + 1)} aria-label="Increase quantity">+</button>
-            <b className="price">{formatPrice(p.price * qty, code)}</b>
+            <b className="price">{formatPrice(productPrice(p, code) * qty, code)}</b>
           </div>
           <a className="btn modal-order" href={`https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent(msg)}`} target="_blank" rel="noreferrer"><MessageCircle size={18} aria-hidden="true" /> {p.soon ? 'Notify me on WhatsApp' : 'Order on WhatsApp'}</a>
           </div>

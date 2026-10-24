@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
 import Tub from './Tub.jsx'
-import { formatPrice, useCurrency } from '../currency.js'
+import { formatPrice, productPrice, useCurrency } from '../currency.js'
 
 const REST_MS = 450 // cursor must stay still this long before the preview shows
 const MOVE_PX = 6 // movement smaller than this still counts as "still"
@@ -50,7 +50,7 @@ export default function ProductCard({ p, onOpen }) {
       <Tub p={p} />
       <h3>{p.name}</h3>
       <p className="muted">{p.size}</p>
-      <p className="price">{formatPrice(p.price, code)}</p>
+      <p className="price">{formatPrice(productPrice(p, code), code)}</p>
       {pop && createPortal(
         <div className="peek" role="tooltip" style={{ left: pop.left, top: pop.top, width: POP_W }}>
           <p className="muted">{p.cat}</p>
@@ -58,7 +58,7 @@ export default function ProductCard({ p, onOpen }) {
           <p>{p.desc}</p>
           {p.size && <p className="muted">Pack: {p.size}</p>}
           {p.flavours.length > 0 && <p className="muted">{p.flavours.length} flavour{p.flavours.length > 1 ? 's' : ''}: {p.flavours.join(', ')}</p>}
-          <b className="price">{formatPrice(p.price, code)}</b>
+          <b className="price">{formatPrice(productPrice(p, code), code)}</b>
         </div>,
         document.body
       )}

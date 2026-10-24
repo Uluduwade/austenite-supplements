@@ -39,7 +39,6 @@ export default function Home() {
     <>
       <section className="hero">
         <div className="hero-copy">
-          <p className="tag">Original UK imports</p>
           <h1>"Train harder Recover faster"</h1>
           <p className="lead">Engineered for absolute performance, raw power, and elite dynamic response. No unnecessary fillers, just 100% premium formulations meticulously designed to push your athletic thresholds.</p>
           <div className="row"><Link className="btn" to="/shop">Shop now</Link><Link className="btn ghost" to="/about">About us</Link></div>
@@ -69,7 +68,7 @@ export default function Home() {
       </section>
       <section className="sec">
         <h2>Best sellers</h2>
-        <ProductGrid items={products.filter((p) => ['creatine-50', 'critical-whey', 'test-x', 'unflavoured-250', 'shred-x'].includes(p.id))} />
+        <ProductGrid items={products.filter((p) => ['creatine-50', 'critical-whey', 'abe', 'unflavoured-250', 'critical-mass'].includes(p.id))} />
         <Link className="btn ghost more" to="/shop">View all products</Link>
       </section>
       <section className="sec">
