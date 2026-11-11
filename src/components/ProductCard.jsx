@@ -50,6 +50,7 @@ export default function ProductCard({ p, onOpen }) {
       <Tub p={p} />
       <h3>{p.name}</h3>
       <p className="muted">{p.size}</p>
+      {p.flavours.length > 0 && <p className="muted">{p.flavours.length} flavour{p.flavours.length > 1 ? 's' : ''}</p>}
       <p className="price">{formatPrice(productPrice(p, code), code)}</p>
       {pop && createPortal(
         <div className="peek" role="tooltip" style={{ left: pop.left, top: pop.top, width: POP_W }}>

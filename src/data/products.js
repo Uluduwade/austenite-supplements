@@ -3,9 +3,9 @@
 export const CATEGORIES = ['All', 'Protein', 'Performance', 'Wellness', 'Fat Burners']
 const base = [
   { id: 'iso-xp', name: 'ISO XP', cat: 'Protein', price: 40000, gbp: 60, size: '1.8kg', flavours: ['Chocolate Dessert'], img: '/products/iso-xp.webp', desc: 'Ultra-clean whey isolate for lean muscle recovery.' },
-  { id: 'essential-protein', name: 'Essential Protein', cat: 'Protein', price: 25000, size: '1.6kg', flavours: ['Double Chocolate'], img: '/products/essential-protein.webp', soon: true, desc: 'Complete everyday protein with 22g per serving.' },
+  { id: 'essential-protein', name: 'Essential Protein', cat: 'Protein', price: 25000, gbp: 38, size: '1.6kg', flavours: ['Double Chocolate'], img: '/products/essential-protein.webp', soon: true, desc: 'Complete everyday protein with 22g per serving.' },
   { id: 'critical-whey', name: 'Critical Whey', cat: 'Protein', price: 28000, gbp: 40, size: '2kg', flavours: ['White Choc Pistachio', 'Chocolate', 'Vanilla'], img: '/products/critical-whey.webp', desc: 'Premium whey protein blend with a serious flavour hit.' },
-  { id: 'critical-mass', name: 'Critical Mass', cat: 'Protein', price: 28000, size: '6kg', flavours: ['Chocolate'], img: '/products/critical-mass.webp', desc: 'High calorie mass gainer for hard gainers building size.' },
+  { id: 'critical-mass', name: 'Critical Mass', cat: 'Protein', price: 28000, gbp: 50, size: '6kg', flavours: ['Chocolate'], img: '/products/critical-mass.webp', desc: 'High calorie mass gainer for hard gainers building size.' },
   { id: 'test-x', name: 'TEST X', cat: 'Performance', price: 12000, gbp: 21, size: '120 capsules', flavours: [], img: '/products/test-x.webp', desc: 'Capsule support for strength and training drive.' },
   { id: 'creatine-hydration', name: 'Creatine + Hydration', cat: 'Performance', price: 10000, size: '30 servings', flavours: ['Non flavoured'], img: '/products/creatine-hydration.webp', desc: 'Creatine with added hydration support for harder sessions.' },
   { id: 'creatine-50', name: 'Creatine', cat: 'Performance', price: 8000, gbp: 10, size: '50 servings', flavours: ['Strawberry & Raspberry', 'Icy Blue Razz', 'Apple & Cherry'], img: '/products/creatine-50.webp', desc: 'Classic creatine for power and repeat performance.' },
