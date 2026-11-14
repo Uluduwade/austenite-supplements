@@ -1,13 +1,17 @@
 import { useEffect, useState } from 'react'
 import { createPortal } from 'react-dom'
-import { Check, ShieldCheck, Plane, Utensils, Users, Lightbulb, MessageCircle, X } from 'lucide-react'
+import { Check, ShieldCheck, Plane, Utensils, Users, Lightbulb, MessageCircle, ShoppingCart, X } from 'lucide-react'
+import { Link } from 'react-router-dom'
 import Tub from './Tub.jsx'
 import { formatPrice, productPrice, useCurrency } from '../currency.js'
 import { CONTACT } from '../config.js'
+import { useCart } from '../cart.js'
 export default function ProductModal({ p, onClose }) {
   const [flavour, setFlavour] = useState(p.flavours[0] || '')
   const [qty, setQty] = useState(1)
+  const [added, setAdded] = useState(false)
   const { code } = useCurrency()
+  const { addItem, openCart } = useCart()
   useEffect(() => {
     const k = (e) => e.key === 'Escape' && onClose()
     window.addEventListener('keydown', k)
@@ -65,6 +69,14 @@ export default function ProductModal({ p, onClose }) {
             <button onClick={() => setQty(Math.max(1, qty - 1))} aria-label="Decrease quantity">-</button><span>{qty}</span><button onClick={() => setQty(qty + 1)} aria-label="Increase quantity">+</button>
             <b className="price">{formatPrice(productPrice(p, code) * qty, code)}</b>
           </div>
+          {!p.soon && (
+            <>
+              <button type="button" className="btn modal-order" onClick={() => { addItem(p.id, flavour, qty); setAdded(true); openCart() }}>
+                <ShoppingCart size={18} aria-hidden="true" /> {added ? 'Add more to cart' : 'Add to cart'}
+              </button>
+              {added && <p className="cart-added" role="status">Added to cart. <Link to="/cart" onClick={onClose}>View cart</Link></p>}
+            </>
+          )}
           <a className="btn modal-order" href={`https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent(msg)}`} target="_blank" rel="noreferrer"><MessageCircle size={18} aria-hidden="true" /> {p.soon ? 'Notify me on WhatsApp' : 'Order on WhatsApp'}</a>
           </div>
         </div>

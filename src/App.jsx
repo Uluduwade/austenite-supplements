@@ -7,8 +7,10 @@ import Shop from './pages/Shop.jsx'
 import About from './pages/About.jsx'
 import Contact from './pages/Contact.jsx'
 import Privacy from './pages/Privacy.jsx'
+import Cart from './pages/Cart.jsx'
 import GhostCursor from './components/GhostCursor.jsx'
 import PatternWaves from './components/PatternWaves.jsx'
+import CartDrawer from './components/CartDrawer.jsx'
 
 export default function App() {
   const { pathname } = useLocation()
@@ -49,6 +51,7 @@ export default function App() {
         zIndex={30}
       />
       <Navbar />
+      <CartDrawer />
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -56,6 +59,7 @@ export default function App() {
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/privacy" element={<Privacy />} />
+          <Route path="/cart" element={<Cart />} />
           <Route path="*" element={<Home />} />
         </Routes>
       </main>

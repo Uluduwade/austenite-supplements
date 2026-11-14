@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState } from 'react'
-import { Search, ArrowRight, ChevronDown } from 'lucide-react'
+import { Search, ArrowRight, ChevronDown, ShoppingCart } from 'lucide-react'
 import { NavLink, Link, useNavigate } from 'react-router-dom'
 import { CURRENCIES, useCurrency } from '../currency.js'
+import { useCart } from '../cart.js'
 import logo from '../public/logo.png'
 const links = [['/', 'Home'], ['/shop', 'Shop'], ['/about', 'About'], ['/contact', 'Contact us']]
 
@@ -46,6 +47,11 @@ export default function Navbar() {
   const [open, setOpen] = useState(false)
   const [q, setQ] = useState('')
   const navigate = useNavigate()
+  const { count, openCart } = useCart()
+  const handleCartClick = () => {
+    setOpen(false)
+    openCart()
+  }
   const submit = (e) => {
     e.preventDefault()
     const t = q.trim()
@@ -70,6 +76,9 @@ export default function Navbar() {
             <button type="submit" className="nav-search-btn" aria-label="Search"><ArrowRight size={16} aria-hidden="true" /></button>
           </form>
           <CurrencySwitcher />
+          <button type="button" className="cart-nav" onClick={handleCartClick} aria-label={`Cart, ${count} ${count === 1 ? 'item' : 'items'}`}>
+            <ShoppingCart size={17} aria-hidden="true" /> Cart <span className="cart-count">{count}</span>
+          </button>
         </nav>
       </header>
     </>

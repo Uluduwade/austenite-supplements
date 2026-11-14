@@ -2,6 +2,8 @@ import { useEffect, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
 import Tub from './Tub.jsx'
 import { formatPrice, productPrice, useCurrency } from '../currency.js'
+import { useCart } from '../cart.js'
+import { ShoppingCart } from 'lucide-react'
 
 const REST_MS = 450 // cursor must stay still this long before the preview shows
 const MOVE_PX = 6 // movement smaller than this still counts as "still"
@@ -9,6 +11,8 @@ const POP_W = 280, POP_H = 300
 
 export default function ProductCard({ p, onOpen }) {
   const { code } = useCurrency()
+  const { addItem, openCart } = useCart()
+  const [added, setAdded] = useState(false)
   const [pop, setPop] = useState(null)
   const timer = useRef(null)
   const last = useRef({ x: 0, y: 0 })
@@ -39,12 +43,14 @@ export default function ProductCard({ p, onOpen }) {
   const reset = (e) => { e.currentTarget.style.transform = ''; hide() }
 
   return (
-    <button
+    <article
       className="card"
       onMouseEnter={(e) => arm(e.clientX, e.clientY)}
       onMouseMove={tilt}
       onMouseLeave={reset}
       onClick={() => { hide(); onOpen(p) }}
+      onKeyDown={(event) => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); hide(); onOpen(p) } }}
+      tabIndex="0"
     >
       {p.soon && <span className="soon-badge">Coming soon</span>}
       <Tub p={p} />
@@ -52,6 +58,7 @@ export default function ProductCard({ p, onOpen }) {
       <p className="muted">{p.size}</p>
       {p.flavours.length > 0 && <p className="muted">{p.flavours.length} flavour{p.flavours.length > 1 ? 's' : ''}</p>}
       <p className="price">{formatPrice(productPrice(p, code), code)}</p>
+      {!p.soon && <button type="button" className="card-add" onClick={(event) => { event.stopPropagation(); addItem(p.id, p.flavours[0] || '', 1); setAdded(true); openCart(); setTimeout(() => setAdded(false), 1200) }}><ShoppingCart size={15} aria-hidden="true" /> {added ? 'Added' : 'Add to cart'}</button>}
       {pop && createPortal(
         <div className="peek" role="tooltip" style={{ left: pop.left, top: pop.top, width: POP_W }}>
           <p className="muted">{p.cat}</p>
@@ -63,6 +70,6 @@ export default function ProductCard({ p, onOpen }) {
         </div>,
         document.body
       )}
-    </button>
+    </article>
   )
 }

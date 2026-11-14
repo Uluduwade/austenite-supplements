@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'
 import App from './App.jsx'
 import { CURRENCIES, CurrencyContext } from './currency.js'
+import { CartProvider } from './cart.js'
 import './styles.css'
 
 function CurrencyProvider({ children }) {
@@ -19,5 +20,5 @@ function CurrencyProvider({ children }) {
 }
 
 createRoot(document.getElementById('root')).render(
-  <BrowserRouter><CurrencyProvider><App /></CurrencyProvider></BrowserRouter>
+  <BrowserRouter><CurrencyProvider><CartProvider><App /></CartProvider></CurrencyProvider></BrowserRouter>
 )

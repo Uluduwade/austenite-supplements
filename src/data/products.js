@@ -2,22 +2,25 @@
 // To show a different photo per flavour, add flavourImg keyed by the exact flavour name (see `flavourImages` below).
 export const CATEGORIES = ['All', 'Protein', 'Performance', 'Wellness', 'Fat Burners']
 const base = [
-  { id: 'iso-xp', name: 'ISO XP', cat: 'Protein', price: 40000, gbp: 60, size: '1.8kg', flavours: ['Chocolate Dessert'], img: '/products/iso-xp.webp', desc: 'Ultra-clean whey isolate for lean muscle recovery.' },
+  { id: 'iso-xp', name: 'ISO XP', cat: 'Protein', price: 40000, gbp: 60, size: '1.8kg', flavours: ['Chocolate Dessert', 'Vanilla'], img: '/products/iso-xp.webp', desc: 'Ultra-clean whey isolate for lean muscle recovery.' },
   { id: 'essential-protein', name: 'Essential Protein', cat: 'Protein', price: 25000, gbp: 38, size: '1.6kg', flavours: ['Double Chocolate'], img: '/products/essential-protein.webp', soon: true, desc: 'Complete everyday protein with 22g per serving.' },
   { id: 'critical-whey', name: 'Critical Whey', cat: 'Protein', price: 28000, gbp: 40, size: '2kg', flavours: ['White Choc Pistachio', 'Chocolate', 'Vanilla'], img: '/products/critical-whey.webp', desc: 'Premium whey protein blend with a serious flavour hit.' },
   { id: 'critical-mass', name: 'Critical Mass', cat: 'Protein', price: 28000, gbp: 50, size: '6kg', flavours: ['Chocolate'], img: '/products/critical-mass.webp', desc: 'High calorie mass gainer for hard gainers building size.' },
   { id: 'test-x', name: 'TEST X', cat: 'Performance', price: 12000, gbp: 21, size: '120 capsules', flavours: [], img: '/products/test-x.webp', desc: 'Capsule support for strength and training drive.' },
-  { id: 'creatine-hydration', name: 'Creatine + Hydration', cat: 'Performance', price: 10000, size: '30 servings', flavours: ['Non flavoured'], img: '/products/creatine-hydration.webp', desc: 'Creatine with added hydration support for harder sessions.' },
+  { id: 'creatine-hydration', name: 'Creatine + Hydration', cat: 'Performance', price: 10000, size: '30 servings', flavours: [''], img: '/products/creatine-hydration.webp', desc: 'Creatine with added hydration support for harder sessions.' },
   { id: 'creatine-50', name: 'Creatine', cat: 'Performance', price: 8000, gbp: 10, size: '50 servings', flavours: ['Strawberry & Raspberry', 'Icy Blue Razz', 'Apple & Cherry'], img: '/products/creatine-50.webp', desc: 'Classic creatine for power and repeat performance.' },
   { id: 'amino-fuel', name: 'Amino Fuel', cat: 'Performance', price: 10500, size: '30 servings', flavours: [], img: '/products/amino-fuel.webp', desc: 'Intra-workout amino acids to keep you fuelled.' },
-  { id: 'abe', name: 'ABE Pre Workout', cat: 'Performance', price: 10000, gbp: 16, size: '30 servings', flavours: ['Icy Blue', 'Cherry Cola', 'Twisted Citrus', 'Candy Icy Blast', 'Bubblegum Crush'], img: '/products/abe-icy-blue.webp', desc: 'Pre-workout for energy, focus and drive in five bold flavours.' },
+  { id: 'abe', name: 'ABE Pre Workout', cat: 'Performance', price: 10000, gbp: 16, size: '30 servings', flavours: ['Icy Blue', 'Cherry Cola', 'Twisted Citrus', 'Candy Icy Blast', 'Bubblegum Crush', 'Strawberry Mojito', 'White'], img: '/products/abe-icy-blue.webp', desc: 'Pre-workout for energy, focus and drive in five bold flavours.' },
   { id: 'unflavoured-500', name: 'Creatine Monohydrate unflavoured 100 servings', cat: 'Performance', price: 12500, gbp: 29.95, size: '500g, 100 servings', flavours: ['Unflavoured'], img: '/products/unflavoured-500.webp',desc: 'Pure, unflavoured, mixes into anything.' },
   { id: 'unflavoured-250', name: 'Creatine Monohydrate unflavoured', cat: 'Performance', price: 7500, gbp: 10, size: '250g, 50 servings', flavours: ['Unflavoured'], img: '/products/unflavoured-250.webp',desc: 'The smaller pack of our unflavoured powder.' },
   { id: 'shred-x', name: 'Shred X Fat Burner', cat: 'Fat Burners', price: 9500, size: '90 capsules', flavours: [], img: '/products/shred-x.webp', desc: 'Thermogenic capsules to support your cut.' },
   { id: 'zma', name: 'Zinc, Magnesium & Vitamin B6 (ZMA)', cat: 'Wellness', price: 9000, gbp: 15, size: '90 capsules', flavours: [], img: '/products/zma.webp', desc: 'ZMA capsules with ashwagandha for sleep quality, stress and recovery.' },
   { id: 'shilajit', name: 'Shilajit', cat: 'Wellness', price: 7500, size: '90 capsules', flavours: [], img: '/products/shilajit.webp', desc: 'Traditional mineral-rich resin in easy capsules.' },
   { id: 'omega-3', name: 'Omega 3', cat: 'Wellness', price: 7000, gbp:11, size: '100 capsules', flavours: [], img: '/products/omega-3.webp', desc: 'Daily fish oil for heart, joints and recovery.' },
-  { id: 'collagen', name: 'Collagen Peptide', cat: 'Wellness', price: 10000, gbp: 24.95, size: '', flavours: [], img: '/products/collagen.webp', desc: 'Collagen support for skin, joints and connective tissue.' }, 
+  { id: 'collagen', name: 'Collagen Peptide', cat: 'Wellness', price: 10000, gbp: 24.95, size: '300g', flavours: [], img: '/products/collagen.webp', desc: 'Collagen support for skin, joints and connective tissue.' }, 
+  { id: 'multivitamin', name: 'Multivitamin Complex', cat: 'Wellness', price: 5500, gbp: 9.99, size: '90 capsules', flavours: [], img: '/products/multivitamin.png', desc: 'Multivitamin support for overall health and wellbeing.' }, 
+  { id: 'vitamin-d3', name: 'Vitamin D3 & Vitamin K2', cat: 'Wellness', price: 5500, gbp: 9.99, size: '90 capsules', flavours: [], img: '/products/vitamin-d3.png', desc: 'Essential vitamin for bone health and immune function.' }, 
+  { id: 'beef-xp', name: 'Beef XP', cat: 'Protein', price: 28000, gbp: 24.95, size: '60 servings', flavours: ['Strawberry & Raspberry'], img: '/products/beef-xp.png', desc: 'Essential vitamin for bone health and immune function.' }, 
 ]
 // Richer copy shown in the product popup: desc (short pitch), about (longer paragraph),
 // highlights (key benefits), use (how to take it), who (best suited for), tip (small extra note).
@@ -155,6 +158,10 @@ const flavourImages = {
     Chocolate: '/products/critical-whey.webp',
     Vanilla: '/products/critical-whey-vanilla-ice-cream.webp',
   },
+  'iso-xp': {
+    'Chocolate Dessert': '/products/iso-xp.webp',
+    'Vanilla': '/products/iso-xp-vanilla.png',
+  },
   'creatine-50': {
     'Strawberry & Raspberry': '/products/creatine-50-strawberry.webp',
     'Icy Blue Razz': '/products/creatine-50-icy-blue-razz.webp',
@@ -166,6 +173,8 @@ const flavourImages = {
     'Twisted Citrus': '/products/abe-twisted-citrus.webp',
     'Candy Icy Blast': '/products/abe-candy-icy-blast.webp',
     'Bubblegum Crush': '/products/abe-bubblegum-crush.webp',
+    'Strawberry Mojito': '/products/abe-strawberry-mojito.png',
+    'White': '/products/abe-white.png',
   },
 }
 export const products = base.map((p) => ({ ...p, ...details[p.id], flavourImg: flavourImages[p.id] }))
