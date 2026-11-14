@@ -65,7 +65,6 @@ export default function Navbar() {
         <Link to="/" className="logo" onClick={() => setOpen(false)} aria-label="Austenite Supplements home">
           <img className="logo-image" src={logo} alt="Austenite Supplements" />
         </Link>
-        <button className="burger" onClick={() => setOpen(!open)} aria-label="Menu">{open ? 'Close' : 'Menu'}</button>
         <nav className={open ? 'open' : ''}>
           {links.map(([to, t]) => (
             <NavLink key={to} to={to} end={to === '/'} onClick={() => setOpen(false)}>{t}</NavLink>
@@ -76,10 +75,13 @@ export default function Navbar() {
             <button type="submit" className="nav-search-btn" aria-label="Search"><ArrowRight size={16} aria-hidden="true" /></button>
           </form>
           <CurrencySwitcher />
-          <button type="button" className="cart-nav" onClick={handleCartClick} aria-label={`Cart, ${count} ${count === 1 ? 'item' : 'items'}`}>
-            <ShoppingCart size={17} aria-hidden="true" /> Cart <span className="cart-count">{count}</span>
-          </button>
         </nav>
+        <div className="nav-actions">
+          <button className="burger" onClick={() => setOpen(!open)} aria-label="Menu">{open ? 'Close' : 'Menu'}</button>
+          <button type="button" className="cart-nav" onClick={handleCartClick} aria-label={`Cart, ${count} ${count === 1 ? 'item' : 'items'}`}>
+            <ShoppingCart size={17} aria-hidden="true" /> <span className="cart-label">Cart</span> <span className="cart-count">{count}</span>
+          </button>
+        </div>
       </header>
     </>
   )

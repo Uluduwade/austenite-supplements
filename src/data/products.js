@@ -18,9 +18,9 @@ const base = [
   { id: 'shilajit', name: 'Shilajit', cat: 'Wellness', price: 7500, size: '90 capsules', flavours: [], img: '/products/shilajit.webp', desc: 'Traditional mineral-rich resin in easy capsules.' },
   { id: 'omega-3', name: 'Omega 3', cat: 'Wellness', price: 7000, gbp:11, size: '100 capsules', flavours: [], img: '/products/omega-3.webp', desc: 'Daily fish oil for heart, joints and recovery.' },
   { id: 'collagen', name: 'Collagen Peptide', cat: 'Wellness', price: 10000, gbp: 24.95, size: '300g', flavours: [], img: '/products/collagen.webp', desc: 'Collagen support for skin, joints and connective tissue.' }, 
-  { id: 'multivitamin', name: 'Multivitamin Complex', cat: 'Wellness', price: 5500, gbp: 9.99, size: '90 capsules', flavours: [], img: '/products/multivitamin.png', desc: 'Multivitamin support for overall health and wellbeing.' }, 
-  { id: 'vitamin-d3', name: 'Vitamin D3 & Vitamin K2', cat: 'Wellness', price: 5500, gbp: 9.99, size: '90 capsules', flavours: [], img: '/products/vitamin-d3.png', desc: 'Essential vitamin for bone health and immune function.' }, 
-  { id: 'beef-xp', name: 'Beef XP', cat: 'Protein', price: 28000, gbp: 24.95, size: '60 servings', flavours: ['Strawberry & Raspberry'], img: '/products/beef-xp.png', desc: 'Essential vitamin for bone health and immune function.' }, 
+  { id: 'multivitamin', name: 'Multivitamin Complex', cat: 'Wellness', price: 5500, gbp: 9.99, size: '90 capsules', flavours: [], img: '/products/multivitamin.png', desc: 'A convenient daily blend of vitamins and minerals for everyday wellness.' }, 
+  { id: 'vitamin-d3', name: 'Vitamin D3 & Vitamin K2', cat: 'Wellness', price: 5500, gbp: 9.99, size: '90 capsules', flavours: [], img: '/products/vitamin-d3.png', desc: 'Vitamin D3 and K2 support for bones, immunity and calcium metabolism.' }, 
+  { id: 'beef-xp', name: 'Beef XP', cat: 'Protein', price: 28000, gbp: 24.95, size: '60 servings', flavours: ['Strawberry & Raspberry'], img: '/products/beef-xp.png', desc: 'Beef-based protein powder for a convenient daily protein top-up.' }, 
 ]
 // Richer copy shown in the product popup: desc (short pitch), about (longer paragraph),
 // highlights (key benefits), use (how to take it), who (best suited for), tip (small extra note).
@@ -149,6 +149,30 @@ const details = {
     use: 'Stir one serving into water, coffee, a smoothie or a shake once a day. Follow the serving size on the label.',
     who: 'Active people looking after their joints and anyone focused on skin health.',
     tip: 'Results come from steady daily use over weeks, not days.',
+  },
+  multivitamin: {
+    desc: 'A convenient daily blend of vitamins and minerals for everyday wellness.',
+    about: 'Multivitamin Complex combines a broad range of essential vitamins and minerals in easy-to-take capsules. It is a simple way to support a balanced diet and keep your daily wellness routine consistent.',
+    highlights: ['Broad vitamin and mineral blend', '90 capsules per pack', 'Convenient daily capsules', 'Designed to complement a balanced diet'],
+    use: 'Take as directed on the label with water and a meal. Do not exceed the recommended amount.',
+    who: 'Adults looking for simple daily nutritional support.',
+    tip: 'A multivitamin complements a varied diet; it is not a replacement for one.',
+  },
+  'vitamin-d3': {
+    desc: 'Vitamin D3 and K2 support for bones, immunity and calcium metabolism.',
+    about: 'Vitamin D3 & Vitamin K2 brings two complementary nutrients together in one convenient capsule. Vitamin D contributes to normal immune function and helps maintain normal bones, while vitamin K contributes to the maintenance of normal bones and normal blood clotting.',
+    highlights: ['Vitamin D3 and vitamin K2 in one formula', 'Supports normal immune function', 'Supports the maintenance of normal bones', '90 capsules per pack'],
+    use: 'Take as directed on the label with water and a meal. Do not exceed the recommended amount.',
+    who: 'Adults wanting convenient daily vitamin D3 and K2 support.',
+    tip: 'If you take anticoagulants, are pregnant or have a medical condition, check with your doctor before using vitamin K2 supplements.',
+  },
+  'beef-xp': {
+    desc: 'Beef-based protein powder for a convenient daily protein top-up.',
+    about: 'Beef XP is a flavoured beef-based protein powder for anyone who wants another option beyond traditional dairy protein. It mixes into a refreshing strawberry and raspberry shake and fits easily into a daily muscle-building or recovery routine.',
+    highlights: ['Beef-based protein powder', '60 servings per tub', 'Strawberry & Raspberry flavour', 'Convenient option for post-workout or between meals'],
+    use: 'Mix one serving with water or milk after training, between meals or whenever you need extra protein. Follow the serving size on the label.',
+    who: 'Anyone looking for a non-dairy alternative to whey protein or an extra daily protein source.',
+    tip: 'Check the label for the protein amount and serving size, and use it alongside a balanced diet.',
   },
 }
 // Per-flavour photos, e.g. abe: { 'Icy Blue': '/products/abe-icy-blue.webp' }. Flavours not listed use the main img.

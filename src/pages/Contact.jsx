@@ -2,17 +2,21 @@ import { useState } from 'react'
 import { ArrowUpRight, Clock3, MessageCircle, Phone, Send, ShieldCheck, Truck } from 'lucide-react'
 import { EmailIcon, InstagramIcon, TikTokIcon } from '../components/SocialIcons.jsx'
 import { CONTACT } from '../config.js'
+import { useCurrency } from '../currency.js'
 import './contact.css'
 
 export default function Contact() {
+  const { code } = useCurrency()
   const [f, setF] = useState({ name: '', message: '' })
+  const phone = code === 'GBP' ? '07539782646' : CONTACT.phone
+  const whatsapp = code === 'GBP' ? '447539782646' : CONTACT.whatsapp
   const send = (e) => {
     e.preventDefault()
     window.location.href = `mailto:${CONTACT.email}?subject=${encodeURIComponent('Enquiry from ' + f.name)}&body=${encodeURIComponent(f.message)}`
   }
   const channels = [
-    { icon: MessageCircle, label: 'WhatsApp', value: CONTACT.phone, href: 'https://wa.me/' + CONTACT.whatsapp, note: 'Fastest way to order', featured: true },
-    { icon: Phone, label: 'Call ' + CONTACT.person, value: CONTACT.phone, href: 'tel:' + CONTACT.phone.replace(/\s/g, ''), note: 'Speak with our team' },
+    { icon: MessageCircle, label: 'WhatsApp', value: phone, href: 'https://wa.me/' + whatsapp, note: 'Fastest way to order', featured: true },
+    { icon: Phone, label: 'Call ' + CONTACT.person, value: phone, href: 'tel:' + phone.replace(/\s/g, ''), note: 'Speak with our team' },
     { icon: EmailIcon, label: 'Email', value: CONTACT.email, href: 'mailto:' + CONTACT.email, note: 'For detailed enquiries' },
     { icon: InstagramIcon, label: 'Instagram', value: (CONTACT.instagramHandle || '@ganithmalage'), href: CONTACT.instagram, note: 'Follow the latest drops' },
     { icon: TikTokIcon, label: 'TikTok', value: (CONTACT.tiktokHandle || '@ganith_malage'), href: CONTACT.tiktok, note: 'See us in action' },
@@ -26,7 +30,7 @@ export default function Contact() {
             <p className="lead">Need help choosing a flavour, checking stock or arranging delivery? {CONTACT.person} and the team are ready to help.</p>
             <div className="contact-pills">
               <span><Clock3 size={16} /> Replies within 24 hours</span>
-              <span><ShieldCheck size={16} /> 100% original UK stock</span>
+              {code === 'LKR' && <span><ShieldCheck size={16} /> 100% original UK stock</span>}
               {/* <span><Truck size={16} /> Island-wide delivery</span> */}
             </div>
           </div>

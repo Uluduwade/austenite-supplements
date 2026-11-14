@@ -34,7 +34,7 @@ export default function ProductModal({ p, onClose }) {
           <Tub p={art} big />
           <div className="modal-badges">
             <span><ShieldCheck size={15} aria-hidden="true" /> 100% original</span>
-            <span><Plane size={15} aria-hidden="true" /> UK imported</span>
+            {code === 'LKR' && <span><Plane size={15} aria-hidden="true" /> UK imported</span>}
           </div>
         </div>
         <div className="modal-info">

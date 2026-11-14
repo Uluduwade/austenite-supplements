@@ -11,6 +11,8 @@ import Cart from './pages/Cart.jsx'
 import GhostCursor from './components/GhostCursor.jsx'
 import PatternWaves from './components/PatternWaves.jsx'
 import CartDrawer from './components/CartDrawer.jsx'
+import SEO from './components/SEO.jsx'
+import { products } from './data/products.js'
 
 export default function App() {
   const { pathname } = useLocation()
@@ -52,6 +54,7 @@ export default function App() {
       />
       <Navbar />
       <CartDrawer />
+      <SEO pathname={pathname} products={products} />
       <main>
         <Routes>
           <Route path="/" element={<Home />} />

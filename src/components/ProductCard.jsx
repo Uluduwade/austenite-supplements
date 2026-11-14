@@ -45,6 +45,9 @@ export default function ProductCard({ p, onOpen }) {
   return (
     <article
       className="card"
+      id={p.id}
+      itemScope
+      itemType="https://schema.org/Product"
       onMouseEnter={(e) => arm(e.clientX, e.clientY)}
       onMouseMove={tilt}
       onMouseLeave={reset}
@@ -54,10 +57,16 @@ export default function ProductCard({ p, onOpen }) {
     >
       {p.soon && <span className="soon-badge">Coming soon</span>}
       <Tub p={p} />
-      <h3>{p.name}</h3>
+      <h3 itemProp="name">{p.name}</h3>
       <p className="muted">{p.size}</p>
       {p.flavours.length > 0 && <p className="muted">{p.flavours.length} flavour{p.flavours.length > 1 ? 's' : ''}</p>}
-      <p className="price">{formatPrice(productPrice(p, code), code)}</p>
+      <meta itemProp="description" content={p.desc} />
+      <meta itemProp="category" content={p.cat} />
+      <p className="price" itemProp="offers" itemScope itemType="https://schema.org/Offer">
+        <meta itemProp="priceCurrency" content={code} />
+        <meta itemProp="price" content={String(productPrice(p, code))} />
+        <span>{formatPrice(productPrice(p, code), code)}</span>
+      </p>
       {!p.soon && <button type="button" className="card-add" onClick={(event) => { event.stopPropagation(); addItem(p.id, p.flavours[0] || '', 1); setAdded(true); openCart(); setTimeout(() => setAdded(false), 1200) }}><ShoppingCart size={15} aria-hidden="true" /> {added ? 'Added' : 'Add to cart'}</button>}
       {pop && createPortal(
         <div className="peek" role="tooltip" style={{ left: pop.left, top: pop.top, width: POP_W }}>

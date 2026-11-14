@@ -15,7 +15,7 @@ export default function Shop() {
   if (sort === 'name') items = [...items].sort((a, b) => a.name.localeCompare(b.name))
   return (
     <section className="sec">
-      <h1>Shop</h1>
+      <h1>Shop Supplements</h1>
       <div className="bar">
         <div className="chips">{CATEGORIES.map((c) => <button key={c} className={'chip' + (c === cat ? ' on' : '')} onClick={() => setCat(c)}>{c}</button>)}</div>
         <select value={sort} onChange={(e) => setSort(e.target.value)} aria-label="Sort">
