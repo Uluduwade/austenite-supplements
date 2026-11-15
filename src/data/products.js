@@ -184,7 +184,7 @@ const flavourImages = {
   },
   'iso-xp': {
     'Chocolate Dessert': '/products/iso-xp.webp',
-    'Vanilla': '/products/iso-xp-vanilla.png',
+    'Vanilla': '/products/iso-xp-vanila.png',
   },
   'creatine-50': {
     'Strawberry & Raspberry': '/products/creatine-50-strawberry.webp',
@@ -197,7 +197,7 @@ const flavourImages = {
     'Twisted Citrus': '/products/abe-twisted-citrus.webp',
     'Candy Icy Blast': '/products/abe-candy-icy-blast.webp',
     'Bubblegum Crush': '/products/abe-bubblegum-crush.webp',
-    'Strawberry Mojito': '/products/abe-strawberry-mojito.png',
+    'Strawberry Mojito': '/products/abe-stawberry-mojito.png',
     'White': '/products/abe-white.png',
   },
 }
