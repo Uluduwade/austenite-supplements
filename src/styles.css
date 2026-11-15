@@ -270,6 +270,7 @@ img{max-width:100%}
 /* coming soon badge (product card + popup) */
 .soon-badge{position:absolute;top:.8rem;right:.8rem;z-index:2;background:var(--ink);color:#fff;font-size:.7rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:.3rem .75rem;border-radius:var(--pill);pointer-events:none}
 .modal-art .soon-badge{top:1.2rem;right:1.2rem}
+.out-of-stock-badge{background:#8c3026}
 
 /* currency dropdown with flag images */
 .currency-switcher{position:relative}

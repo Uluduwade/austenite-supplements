@@ -55,7 +55,7 @@ export default function ProductCard({ p, onOpen }) {
       onKeyDown={(event) => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); hide(); onOpen(p) } }}
       tabIndex="0"
     >
-      {p.soon && <span className="soon-badge">Coming soon</span>}
+      {(p.soon || p.outOfStock) && <span className={`soon-badge${p.outOfStock ? ' out-of-stock-badge' : ''}`}>{p.outOfStock ? 'Out of stock' : 'Coming soon'}</span>}
       <Tub p={p} />
       <h3 itemProp="name">{p.name}</h3>
       <p className="muted">{p.size}</p>
@@ -67,7 +67,7 @@ export default function ProductCard({ p, onOpen }) {
         <meta itemProp="price" content={String(productPrice(p, code))} />
         <span>{formatPrice(productPrice(p, code), code)}</span>
       </p>
-      {!p.soon && <button type="button" className="card-add" onClick={(event) => { event.stopPropagation(); addItem(p.id, p.flavours[0] || '', 1); setAdded(true); openCart(); setTimeout(() => setAdded(false), 1200) }}><ShoppingCart size={15} aria-hidden="true" /> {added ? 'Added' : 'Add to cart'}</button>}
+      {!p.soon && !p.outOfStock && <button type="button" className="card-add" onClick={(event) => { event.stopPropagation(); addItem(p.id, p.flavours[0] || '', 1); setAdded(true); openCart(); setTimeout(() => setAdded(false), 1200) }}><ShoppingCart size={15} aria-hidden="true" /> {added ? 'Added' : 'Add to cart'}</button>}
       {pop && createPortal(
         <div className="peek" role="tooltip" style={{ left: pop.left, top: pop.top, width: POP_W }}>
           <p className="muted">{p.cat}</p>

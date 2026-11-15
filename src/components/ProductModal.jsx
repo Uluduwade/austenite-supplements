@@ -20,8 +20,9 @@ export default function ProductModal({ p, onClose }) {
   }, [onClose])
   // A flavour can have its own photo via p.flavourImg; otherwise the main product image is used
   const art = { ...p, img: (p.flavourImg && p.flavourImg[flavour]) || p.img }
-  const msg = p.soon
-    ? `Hi Austenite, please let me know when ${p.name} ${p.size}${flavour ? ' (' + flavour + ')' : ''} is available.`
+  const unavailable = p.soon || p.outOfStock
+  const msg = unavailable
+    ? `Hi Austenite, please let me know when ${p.name} ${p.size}${flavour ? ' (' + flavour + ')' : ''} ${p.outOfStock ? 'is back in stock' : 'is available'}.`
     : `Hi Austenite, I'd like to order ${qty} x ${p.name} ${p.size}${flavour ? ' (' + flavour + ')' : ''}.`
   // Portal to <body> so the popup escapes <main>'s stacking context and sits above the sticky navbar
   return createPortal(
@@ -30,7 +31,7 @@ export default function ProductModal({ p, onClose }) {
         <button className="x" onClick={onClose} aria-label="Close"><X size={16} aria-hidden="true" /></button>
         <div className="modal-art">
           <span className="modal-cat">{p.cat}</span>
-          {p.soon && <span className="soon-badge">Coming soon</span>}
+          {unavailable && <span className={`soon-badge${p.outOfStock ? ' out-of-stock-badge' : ''}`}>{p.outOfStock ? 'Out of stock' : 'Coming soon'}</span>}
           <Tub p={art} big />
           <div className="modal-badges">
             <span><ShieldCheck size={15} aria-hidden="true" /> 100% original</span>
@@ -69,7 +70,7 @@ export default function ProductModal({ p, onClose }) {
             <button onClick={() => setQty(Math.max(1, qty - 1))} aria-label="Decrease quantity">-</button><span>{qty}</span><button onClick={() => setQty(qty + 1)} aria-label="Increase quantity">+</button>
             <b className="price">{formatPrice(productPrice(p, code) * qty, code)}</b>
           </div>
-          {!p.soon && (
+          {!unavailable && (
             <>
               <button type="button" className="btn modal-order" onClick={() => { addItem(p.id, flavour, qty); setAdded(true); openCart() }}>
                 <ShoppingCart size={18} aria-hidden="true" /> {added ? 'Add more to cart' : 'Add to cart'}
@@ -77,7 +78,7 @@ export default function ProductModal({ p, onClose }) {
               {added && <p className="cart-added" role="status">Added to cart. <Link to="/cart" onClick={onClose}>View cart</Link></p>}
             </>
           )}
-          <a className="btn modal-order" href={`https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent(msg)}`} target="_blank" rel="noreferrer"><MessageCircle size={18} aria-hidden="true" /> {p.soon ? 'Notify me on WhatsApp' : 'Order on WhatsApp'}</a>
+          <a className="btn modal-order" href={`https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent(msg)}`} target="_blank" rel="noreferrer"><MessageCircle size={18} aria-hidden="true" /> {unavailable ? 'Notify me on WhatsApp' : 'Order on WhatsApp'}</a>
           </div>
         </div>
       </div>
