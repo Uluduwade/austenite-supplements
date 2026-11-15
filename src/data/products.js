@@ -19,7 +19,7 @@ const base = [
   { id: 'omega-3', name: 'Omega 3', cat: 'Wellness', price: 7000, gbp:11, size: '100 capsules', flavours: [], img: '/products/omega-3.webp', desc: 'Daily fish oil for heart, joints and recovery.' },
   { id: 'collagen', name: 'Collagen Peptide', cat: 'Wellness', price: 10000, gbp: 24.95, size: '300g', flavours: [], img: '/products/collagen.webp', desc: 'Collagen support for skin, joints and connective tissue.' }, 
   { id: 'multivitamin', name: 'Multivitamin Complex', cat: 'Wellness', price: 5500, gbp: 9.99, size: '90 capsules', flavours: [], img: '/products/multivitamin.png', desc: 'A convenient daily blend of vitamins and minerals for everyday wellness.' }, 
-  { id: 'vitamin-d3', name: 'Vitamin D3 & Vitamin K2', cat: 'Wellness', price: 5500, gbp: 9.99, size: '90 capsules', flavours: [], img: '/products/vitamin-d3.png', desc: 'Vitamin D3 and K2 support for bones, immunity and calcium metabolism.' }, 
+  { id: 'vitamin-d3', name: 'Vitamin D3 & Vitamin K2', cat: 'Wellness', price: 6500, gbp: 9.99, size: '90 capsules', flavours: [], img: '/products/vitamin-d3.png', desc: 'Vitamin D3 and K2 support for bones, immunity and calcium metabolism.' }, 
   { id: 'beef-xp', name: 'Beef XP', cat: 'Protein', price: 28000, gbp: 24.95, size: '60 servings', flavours: ['Strawberry & Raspberry'], img: '/products/beef-xp.png', desc: 'Beef-based protein powder for a convenient daily protein top-up.' }, 
 ]
 // Richer copy shown in the product popup: desc (short pitch), about (longer paragraph),
