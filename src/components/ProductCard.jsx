@@ -4,6 +4,7 @@ import Tub from './Tub.jsx'
 import { formatPrice, productPrice, useCurrency } from '../currency.js'
 import { useCart } from '../cart.js'
 import { ShoppingCart } from 'lucide-react'
+import { isFlavourOutOfStock } from '../data/products.js'
 
 const REST_MS = 450 // cursor must stay still this long before the preview shows
 const MOVE_PX = 6 // movement smaller than this still counts as "still"
@@ -41,6 +42,7 @@ export default function ProductCard({ p, onOpen }) {
     }
   }
   const reset = (e) => { e.currentTarget.style.transform = ''; hide() }
+  const firstAvailableFlavour = p.flavours.find((flavour) => !isFlavourOutOfStock(p, flavour)) || ''
 
   return (
     <article
@@ -71,7 +73,7 @@ export default function ProductCard({ p, onOpen }) {
         <meta itemProp="url" content={`https://austenitesupplements.uk/shop#${p.id}`} />
         <span>{formatPrice(productPrice(p, code), code)}</span>
       </p>
-      {!p.soon && !p.outOfStock && <button type="button" className="card-add" onClick={(event) => { event.stopPropagation(); addItem(p.id, p.flavours[0] || '', 1); setAdded(true); openCart(); setTimeout(() => setAdded(false), 1200) }}><ShoppingCart size={15} aria-hidden="true" /> {added ? 'Added' : 'Add to cart'}</button>}
+      {!p.soon && !p.outOfStock && firstAvailableFlavour !== undefined && <button type="button" className="card-add" onClick={(event) => { event.stopPropagation(); addItem(p.id, firstAvailableFlavour, 1); setAdded(true); openCart(); setTimeout(() => setAdded(false), 1200) }}><ShoppingCart size={15} aria-hidden="true" /> {added ? 'Added' : 'Add to cart'}</button>}
       {pop && createPortal(
         <div className="peek" role="tooltip" style={{ left: pop.left, top: pop.top, width: POP_W }}>
           <p className="muted">{p.cat}</p>

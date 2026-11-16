@@ -6,8 +6,9 @@ import Tub from './Tub.jsx'
 import { formatPrice, productPrice, useCurrency } from '../currency.js'
 import { CONTACT } from '../config.js'
 import { useCart } from '../cart.js'
+import { isFlavourOutOfStock } from '../data/products.js'
 export default function ProductModal({ p, onClose }) {
-  const [flavour, setFlavour] = useState(p.flavours[0] || '')
+  const [flavour, setFlavour] = useState(() => p.flavours.find((item) => !isFlavourOutOfStock(p, item)) || p.flavours[0] || '')
   const [qty, setQty] = useState(1)
   const [added, setAdded] = useState(false)
   const { code } = useCurrency()
@@ -20,9 +21,9 @@ export default function ProductModal({ p, onClose }) {
   }, [onClose])
   // A flavour can have its own photo via p.flavourImg; otherwise the main product image is used
   const art = { ...p, img: (p.flavourImg && p.flavourImg[flavour]) || p.img }
-  const unavailable = p.soon || p.outOfStock
+  const unavailable = p.soon || isFlavourOutOfStock(p, flavour)
   const msg = unavailable
-    ? `Hi Austenite, please let me know when ${p.name} ${p.size}${flavour ? ' (' + flavour + ')' : ''} ${p.outOfStock ? 'is back in stock' : 'is available'}.`
+    ? `Hi Austenite, please let me know when ${p.name} ${p.size}${flavour ? ' (' + flavour + ')' : ''} is available.`
     : `Hi Austenite, I'd like to order ${qty} x ${p.name} ${p.size}${flavour ? ' (' + flavour + ')' : ''}.`
   // Portal to <body> so the popup escapes <main>'s stacking context and sits above the sticky navbar
   return createPortal(
@@ -31,7 +32,7 @@ export default function ProductModal({ p, onClose }) {
         <button className="x" onClick={onClose} aria-label="Close"><X size={16} aria-hidden="true" /></button>
         <div className="modal-art">
           <span className="modal-cat">{p.cat}</span>
-          {unavailable && <span className={`soon-badge${p.outOfStock ? ' out-of-stock-badge' : ''}`}>{p.outOfStock ? 'Out of stock' : 'Coming soon'}</span>}
+          {unavailable && <span className={`soon-badge${!p.soon ? ' out-of-stock-badge' : ''}`}>{p.soon ? 'Coming soon' : 'Out of stock'}</span>}
           <Tub p={art} big />
           <div className="modal-badges">
             <span><ShieldCheck size={15} aria-hidden="true" /> 100% original</span>
@@ -62,7 +63,7 @@ export default function ProductModal({ p, onClose }) {
             <div className="modal-opt">
               <p className="section-kicker">Flavour</p>
               <div className="chips">{p.flavours.map((f) => (
-                <button key={f} className={'chip' + (f === flavour ? ' on' : '')} onClick={() => setFlavour(f)}>{f}</button>
+                <button key={f} type="button" disabled={isFlavourOutOfStock(p, f)} className={'chip' + (f === flavour ? ' on' : '')} onClick={() => setFlavour(f)}>{f}{isFlavourOutOfStock(p, f) ? ' (out of stock)' : ''}</button>
               ))}</div>
             </div>
           )}
