@@ -60,6 +60,7 @@ export default function ProductCard({ p, onOpen }) {
       <h3 itemProp="name">{p.name}</h3>
       <p className="muted">{p.size}</p>
       {p.flavours.length > 0 && <p className="muted">{p.flavours.length} flavour{p.flavours.length > 1 ? 's' : ''}</p>}
+      {p.img && <meta itemProp="image" content={`https://austenitesupplements.uk${p.img}`} />}
       <meta itemProp="description" content={p.desc} />
       <meta itemProp="category" content={p.cat} />
       <meta itemProp="brand" content="Applied Nutrition" />
