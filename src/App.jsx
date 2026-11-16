@@ -13,6 +13,7 @@ import PatternWaves from './components/PatternWaves.jsx'
 import CartDrawer from './components/CartDrawer.jsx'
 import SEO from './components/SEO.jsx'
 import { products } from './data/products.js'
+import { Analytics } from '@vercel/analytics/react'
 
 export default function App() {
   const { pathname } = useLocation()
@@ -67,6 +68,7 @@ export default function App() {
         </Routes>
       </main>
       <Footer />
+      <Analytics />
     </>
   )
 }
