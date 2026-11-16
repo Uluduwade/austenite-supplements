@@ -17,42 +17,44 @@ import { Analytics } from '@vercel/analytics/react'
 
 export default function App() {
   const { pathname } = useLocation()
+  const touchDevice = typeof window !== 'undefined' && ('ontouchstart' in window || navigator.maxTouchPoints > 0)
+  const reducedMotion = typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches
   useEffect(() => {
     window.scrollTo(0, 0)
     return undefined
   }, [pathname])
   return (
     <>
-      <PatternWaves
-        preset="silk"
-        pattern="line"
-        wave="silk"
-        color="#667085"
-        backgroundColor="#eef1f4"
-        spacing={13}
-        markSize={0.42}
-        depth={0.8}
-        shine={0.8}
-        contrast={1.15}
-        speed={0.24}
-        scale={1.05}
-        direction={20}
-        opacity={0.42}
-        fade="edges"
-        fadeSize={0.35}
-        interactive
-        className="pattern-waves-background"
-      />
-      <GhostCursor
-        color="#111111"
-        theme="light"
-        size={58}
-        trailLength={38}
-        turbulence={0.35}
-        detail={0.65}
-        targetPixels={260000}
-        zIndex={30}
-      />
+      {!touchDevice && !reducedMotion && <PatternWaves
+          preset="silk"
+          pattern="line"
+          wave="silk"
+          color="#667085"
+          backgroundColor="#eef1f4"
+          spacing={13}
+          markSize={0.42}
+          depth={0.8}
+          shine={0.8}
+          contrast={1.15}
+          speed={0.24}
+          scale={1.05}
+          direction={20}
+          opacity={0.42}
+          fade="edges"
+          fadeSize={0.35}
+          interactive
+          className="pattern-waves-background"
+        />}
+      {!touchDevice && !reducedMotion && <GhostCursor
+          color="#111111"
+          theme="light"
+          size={58}
+          trailLength={38}
+          turbulence={0.35}
+          detail={0.65}
+          targetPixels={260000}
+          zIndex={30}
+        />}
       <Navbar />
       <CartDrawer />
       <SEO pathname={pathname} products={products} />

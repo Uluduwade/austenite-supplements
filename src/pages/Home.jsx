@@ -46,7 +46,7 @@ export default function Home() {
         <div className="hero-art">
           {hero.map((p, n) => (
             <Link to="/shop" key={p.id} className={'slide' + (n === i ? ' on' : '')} aria-hidden={n !== i}>
-              <Tub p={p} big /><span>{p.name}</span>
+              <Tub p={p} big={n === i} loading={n === i ? 'eager' : 'lazy'} /><span>{p.name}</span>
             </Link>
           ))}
           <div className="dots">{hero.map((p, n) => <button key={p.id} className={n === i ? 'on' : ''} onClick={() => setI(n)} aria-label={'Show ' + p.name} />)}</div>
