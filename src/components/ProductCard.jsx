@@ -62,9 +62,12 @@ export default function ProductCard({ p, onOpen }) {
       {p.flavours.length > 0 && <p className="muted">{p.flavours.length} flavour{p.flavours.length > 1 ? 's' : ''}</p>}
       <meta itemProp="description" content={p.desc} />
       <meta itemProp="category" content={p.cat} />
+      <meta itemProp="brand" content="Applied Nutrition" />
       <p className="price" itemProp="offers" itemScope itemType="https://schema.org/Offer">
         <meta itemProp="priceCurrency" content={code} />
         <meta itemProp="price" content={String(productPrice(p, code))} />
+        <meta itemProp="availability" content={`https://schema.org/${p.outOfStock ? 'OutOfStock' : p.soon ? 'PreOrder' : 'InStock'}`} />
+        <meta itemProp="url" content={`https://austenitesupplements.uk/shop#${p.id}`} />
         <span>{formatPrice(productPrice(p, code), code)}</span>
       </p>
       {!p.soon && !p.outOfStock && <button type="button" className="card-add" onClick={(event) => { event.stopPropagation(); addItem(p.id, p.flavours[0] || '', 1); setAdded(true); openCart(); setTimeout(() => setAdded(false), 1200) }}><ShoppingCart size={15} aria-hidden="true" /> {added ? 'Added' : 'Add to cart'}</button>}
