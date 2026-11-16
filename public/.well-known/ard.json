@@ -1,0 +1,27 @@
+{
+  "version": "0.1",
+  "name": "Austenite Supplements",
+  "description": "Authentic UK-imported Applied Nutrition supplements available in Sri Lanka.",
+  "resources": [
+    {
+      "name": "Website",
+      "type": "website",
+      "url": "https://austenitesupplements.uk/"
+    },
+    {
+      "name": "Product catalogue",
+      "type": "catalog",
+      "url": "https://austenitesupplements.uk/shop"
+    },
+    {
+      "name": "Machine-readable guidance",
+      "type": "llms-txt",
+      "url": "https://austenitesupplements.uk/llms.txt"
+    },
+    {
+      "name": "Sitemap",
+      "type": "sitemap",
+      "url": "https://austenitesupplements.uk/sitemap.xml"
+    }
+  ]
+}

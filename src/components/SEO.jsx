@@ -79,47 +79,40 @@ export default function SEO({ pathname, products = [] }) {
     const script = document.createElement('script')
     script.id = 'seo-jsonld'
     script.type = 'application/ld+json'
-    const structuredData = path === '/shop' && products.length > 0 ? {
+    const productItems = products.map((product, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      item: {
+        '@type': 'Product',
+        '@id': `${SITE_URL}/shop#${product.id}`,
+        name: product.name,
+        image: [`${SITE_URL}${product.img}`],
+        description: product.desc,
+        category: product.cat,
+        brand: { '@type': 'Brand', name: 'Applied Nutrition' },
+        offers: {
+          '@type': 'Offer',
+          url: `${SITE_URL}/shop#${product.id}`,
+          priceCurrency: 'GBP',
+          price: String(product.gbp ?? product.price / 400),
+          availability: `https://schema.org/${product.outOfStock ? 'OutOfStock' : product.soon ? 'PreOrder' : 'InStock'}`,
+        },
+      },
+    }))
+    const structuredData = products.length > 0 ? {
       '@context': 'https://schema.org',
       '@graph': [
         {
           '@type': 'CollectionPage',
           name: meta.title,
           description: meta.description,
+          url: canonical,
           mainEntity: { '@id': `${SITE_URL}/shop#product-list` },
         },
         {
           '@type': 'ItemList',
           '@id': `${SITE_URL}/shop#product-list`,
-          itemListElement: products.map((product, index) => ({
-            '@type': 'ListItem',
-            position: index + 1,
-            item: {
-              '@type': 'Product',
-              name: product.name,
-              image: `${SITE_URL}${product.img}`,
-              description: product.desc,
-              category: product.cat,
-              brand: { '@type': 'Brand', name: 'Applied Nutrition' },
-              offers: {
-                '@type': 'Offer',
-                url: `${SITE_URL}/shop#${product.id}`,
-                priceCurrency: 'GBP',
-                price: String(product.gbp ?? product.price / 400),
-                availability: `https://schema.org/${product.outOfStock ? 'OutOfStock' : product.soon ? 'PreOrder' : 'InStock'}`,
-                hasMerchantReturnPolicy: {
-                  '@type': 'MerchantReturnPolicy',
-                  applicableCountry: 'GB',
-                  returnPolicyCategory: 'https://schema.org/MerchantReturnNotPermitted',
-                },
-                shippingDetails: {
-                  '@type': 'OfferShippingDetails',
-                  shippingDestination: { '@type': 'DefinedRegion', addressCountry: 'GB' },
-                  shippingRate: { '@type': 'MonetaryAmount', value: '0', currency: 'GBP' },
-                },
-              },
-            },
-          })),
+          itemListElement: productItems,
         },
       ],
     } : {

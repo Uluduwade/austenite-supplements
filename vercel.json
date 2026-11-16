@@ -7,11 +7,19 @@
     {
       "source": "/robots.txt",
       "headers": [{ "key": "Content-Type", "value": "text/plain; charset=utf-8" }]
+    },
+    {
+      "source": "/llms.txt",
+      "headers": [{ "key": "Content-Type", "value": "text/plain; charset=utf-8" }]
+    },
+    {
+      "source": "/.well-known/ard.json",
+      "headers": [{ "key": "Content-Type", "value": "application/json; charset=utf-8" }]
     }
   ],
   "rewrites": [
     {
-      "source": "/(.*)",
+      "source": "/((?!sitemap\\.xml$|robots\\.txt$|llms\\.txt$|\\.well-known/ard\\.json$).*)",
       "destination": "/index.html"
     }
   ]
