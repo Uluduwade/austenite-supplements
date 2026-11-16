@@ -4,16 +4,16 @@ const SITE_URL = 'https://austenitesupplements.uk'
 
 const pageMeta = {
   '/': {
-    title: 'Austenite Supplements | Authentic UK Sports Nutrition',
-    description: 'Shop authentic Applied Nutrition supplements in the UK and Sri Lanka, including protein, creatine, pre-workout, vitamins and wellness products.',
+    title: 'Austenite Supplements | Applied Nutrition Sri Lanka',
+    description: 'Shop authentic UK-imported Applied Nutrition supplements in Sri Lanka from Austenite Supplements, including creatine, protein, pre-workout, vitamins and wellness products.',
   },
   '/shop': {
-    title: 'Shop Supplements | Austenite Supplements',
-    description: 'Browse authentic Applied Nutrition protein, creatine, pre-workout, vitamins and wellness supplements from Austenite Supplements.',
+    title: 'Shop Applied Nutrition Supplements | Austenite Sri Lanka',
+    description: 'Browse authentic Applied Nutrition creatine, protein, pre-workout, vitamins and wellness supplements, imported from the UK and available through Austenite Supplements in Sri Lanka.',
   },
   '/about': {
-    title: 'About Austenite Supplements | Authentic Applied Nutrition',
-    description: 'Learn how Austenite Supplements makes genuine Applied Nutrition sports nutrition easier to access for athletes and health-conscious customers.',
+    title: 'About Austenite Supplements | Applied Nutrition Sri Lanka',
+    description: 'Learn how Austenite Supplements provides genuine UK-imported Applied Nutrition sports nutrition to athletes and health-conscious customers in Sri Lanka.',
   },
   '/contact': {
     title: 'Contact Austenite Supplements',
@@ -124,13 +124,31 @@ export default function SEO({ pathname, products = [] }) {
       ],
     } : {
       '@context': 'https://schema.org',
-      '@type': 'Organization',
-      name: 'Austenite Supplements',
-      url: SITE_URL,
-      logo: `${SITE_URL}/logo.png`,
-      sameAs: [
-        'https://www.instagram.com/ganithmalage/',
-        'https://www.tiktok.com/@ganith_malage',
+      '@graph': [
+        {
+          '@type': 'Organization',
+          '@id': `${SITE_URL}/#organization`,
+          name: 'Austenite Supplements',
+          alternateName: 'Austenite Applied Nutrition Sri Lanka',
+          url: SITE_URL,
+          logo: `${SITE_URL}/logo.jpeg`,
+          description: 'Supplier of authentic UK-imported Applied Nutrition supplements in Sri Lanka.',
+          areaServed: [
+            { '@type': 'Country', name: 'Sri Lanka' },
+            { '@type': 'Country', name: 'United Kingdom' },
+          ],
+          sameAs: [
+            'https://www.instagram.com/ganithmalage/',
+            'https://www.tiktok.com/@ganith_malage',
+          ],
+        },
+        {
+          '@type': 'WebSite',
+          '@id': `${SITE_URL}/#website`,
+          name: 'Austenite Supplements',
+          url: SITE_URL,
+          publisher: { '@id': `${SITE_URL}/#organization` },
+        },
       ],
     }
     script.textContent = JSON.stringify(structuredData)

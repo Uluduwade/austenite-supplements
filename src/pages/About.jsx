@@ -26,8 +26,8 @@ export default function About() {
       <section className="sec about-intro">
         <div className="about-copy">
           <p className="section-kicker">Who we are</p>
-          <p className="lead">Founded by <b>Ganith Kavinda Malage</b>, Austenite Supplements was established with a clear mission: to give athletes, fitness enthusiasts and health driven individuals direct access to 100% authentic, world-class sports nutrition.</p>
-          <p>We specialize exclusively in stocking and retailing genuine products from <b>Applied Nutrition</b>, one of the globally recognized leaders in performance and health supplementation.</p>
+          <p className="lead">Founded by <b>Ganith Kavinda Malage</b>, Austenite Supplements helps athletes, fitness enthusiasts and health-driven customers in Sri Lanka access 100% authentic, UK-imported sports nutrition.</p>
+          <p>We specialize in genuine products from <b>Applied Nutrition</b>, including creatine, protein, pre-workout, vitamins and wellness supplements.</p>
         </div>
         <aside className="about-name">
           <Hexagon className="about-name-icon" size={44} aria-hidden="true" />

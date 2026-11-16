@@ -4,6 +4,7 @@ import ProductGrid from '../components/ProductGrid.jsx'
 import Tub from '../components/Tub.jsx'
 import { Dumbbell, Zap, Leaf, Flame, ShieldCheck, Plane, MessageCircle, BadgeCheck, MousePointerClick, PackageCheck } from 'lucide-react'
 import { products } from '../data/products.js'
+import { useCurrency } from '../currency.js'
 
 const goals = [
   ['Protein', 'Build and recover', Dumbbell],
@@ -34,13 +35,14 @@ function Count({ to, suffix = '' }) {
 }
 export default function Home() {
   const [i, setI] = useState(0)
+  const { code } = useCurrency()
   useEffect(() => { const t = setInterval(() => setI((x) => (x + 1) % hero.length), 3000); return () => clearInterval(t) }, [])
   return (
     <>
       <section className="hero">
         <div className="hero-copy">
-          <h1>"Train harder Recover faster"</h1>
-          <p className="lead">Engineered for absolute performance, raw power, and elite dynamic response. No unnecessary fillers, just 100% premium formulations meticulously designed to push your athletic thresholds.</p>
+          <h1>Authentic Applied Nutrition Supplements{code === 'LKR' ? ' in Sri Lanka' : ''}</h1>
+          <p className="lead">Austenite Supplements makes genuine, UK Applied Nutrition creatine, protein, pre-workout and wellness supplements available in Sri Lanka. Train harder, recover faster.</p>
           <div className="row"><Link className="btn" to="/shop">Shop now</Link><Link className="btn ghost" to="/about">About us</Link></div>
         </div>
         <div className="hero-art">
