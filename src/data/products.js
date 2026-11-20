@@ -3,7 +3,7 @@
 export const CATEGORIES = ['All', 'Protein', 'Performance', 'Wellness', 'Fat Burners']
 const base = [
   { id: 'iso-xp', name: 'ISO XP', cat: 'Protein', price: 40000, gbp: 60, size: '1.8kg', flavours: ['Chocolate Dessert', 'Vanilla'], img: '/products/iso-xp.webp', desc: 'Ultra-clean whey isolate for lean muscle recovery.' },
-  { id: 'essential-protein', name: 'Essential Protein', cat: 'Protein', price: 25000, gbp: 38, size: '1.6kg', flavours: ['Double Chocolate'], img: '/products/essential-protein.webp', soon: true, desc: 'Complete everyday protein with 22g per serving.' },
+  { id: 'essential-protein', name: 'Essential Protein', cat: 'Protein', price: 25000, gbp: 30, size: '1.6kg', flavours: ['Double Chocolate'], img: '/products/essential-protein.webp', desc: 'Complete everyday protein with 22g per serving.' },
   { id: 'critical-whey', name: 'Critical Whey', cat: 'Protein', price: 28000, gbp: 40, size: '2kg', flavours: ['White Choc Pistachio', 'Chocolate', 'Vanilla'], outOfStockFlavours: ['White Choc Pistachio'], img: '/products/critical-whey.webp', desc: 'Premium whey protein blend with a serious flavour hit.' },
   { id: 'critical-mass', name: 'Critical Mass', cat: 'Protein', price: 28000, gbp: 50, size: '6kg', flavours: ['Chocolate'], img: '/products/critical-mass.webp', outOfStock: true, desc: 'High calorie mass gainer for hard gainers building size.' },
   { id: 'test-x', name: 'TEST X', cat: 'Performance', price: 12000, gbp: 21, size: '120 capsules', flavours: [], img: '/products/test-x.webp', desc: 'Capsule support for strength and training drive.' },
@@ -39,7 +39,7 @@ const details = {
     highlights: ['22g protein and 117 calories per serving', 'Complete amino acid profile', '50 servings per 1.6kg tub', 'Double chocolate flavour'],
     use: 'Mix one serving with water or milk once or twice a day, after training or between meals. Follow the serving size on the label.',
     who: 'Anyone building muscle or topping up daily protein without fuss.',
-    tip: 'Coming soon. Message us on WhatsApp and we will let you know when it lands.',
+   
   },
   'critical-whey': {
     desc: 'Premium whey blend with a big protein hit and a flavour range that actually tastes good.',
