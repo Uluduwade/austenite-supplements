@@ -43,6 +43,7 @@ export default function ProductCard({ p, onOpen }) {
   }
   const reset = (e) => { e.currentTarget.style.transform = ''; hide() }
   const firstAvailableFlavour = p.flavours.find((flavour) => !isFlavourOutOfStock(p, flavour)) || ''
+  const optionName = p.optionLabel === 'Color' ? 'color' : 'flavour'
 
   return (
     <article
@@ -61,7 +62,7 @@ export default function ProductCard({ p, onOpen }) {
       <Tub p={p} />
       <h3 itemProp="name">{p.name}</h3>
       <p className="muted">{p.size}</p>
-      {p.flavours.length > 0 && <p className="muted">{p.flavours.length} flavour{p.flavours.length > 1 ? 's' : ''}</p>}
+      {p.flavours.length > 0 && <p className="muted">{p.flavours.length} {optionName}{p.flavours.length > 1 ? 's' : ''}</p>}
       {p.img && <meta itemProp="image" content={`https://austenitesupplements.uk${p.img}`} />}
       <meta itemProp="description" content={p.desc} />
       <meta itemProp="category" content={p.cat} />
@@ -80,7 +81,7 @@ export default function ProductCard({ p, onOpen }) {
           <h4>{p.name}</h4>
           <p>{p.desc}</p>
           {p.size && <p className="muted">Pack: {p.size}</p>}
-          {p.flavours.length > 0 && <p className="muted">{p.flavours.length} flavour{p.flavours.length > 1 ? 's' : ''}: {p.flavours.join(', ')}</p>}
+          {p.flavours.length > 0 && <p className="muted">{p.flavours.length} {optionName}{p.flavours.length > 1 ? 's' : ''}: {p.flavours.join(', ')}</p>}
           <b className="price">{formatPrice(productPrice(p, code), code)}</b>
         </div>,
         document.body

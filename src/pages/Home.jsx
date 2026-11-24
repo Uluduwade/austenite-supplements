@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import ProductGrid from '../components/ProductGrid.jsx'
 import Tub from '../components/Tub.jsx'
-import { Dumbbell, Zap, Leaf, Flame, ShieldCheck, Plane, MessageCircle, BadgeCheck, MousePointerClick, PackageCheck } from 'lucide-react'
+import { Dumbbell, Zap, Leaf, Flame, ShoppingBag, ShieldCheck, Plane, MessageCircle, BadgeCheck, MousePointerClick, PackageCheck } from 'lucide-react'
 import { products } from '../data/products.js'
 import { useCurrency } from '../currency.js'
 
@@ -11,6 +11,7 @@ const goals = [
   ['Performance', 'Power and endurance', Zap],
   ['Wellness', 'Daily health staples', Leaf],
   ['Fat Burners', 'Support your cut', Flame],
+  ['Accessories', 'Gear up for training', ShoppingBag],
 ]
 const perks = [
   [ShieldCheck, 'Authentic only', 'Sealed Applied Nutrition, nothing relabelled.'],
@@ -76,6 +77,12 @@ export default function Home() {
         <h2>Best sellers</h2>
         <ProductGrid items={products.filter((p) => ['creatine-50', 'critical-whey', 'abe', 'unflavoured-250', 'critical-mass'].includes(p.id))} />
         <Link className="btn ghost more" to="/shop">View all products</Link>
+      </section>
+      <section className="sec">
+        <p className="section-kicker">Accessories</p>
+        <h2>Train equipped</h2>
+        <ProductGrid items={products.filter((p) => p.cat === 'Accessories')} />
+        <Link className="btn ghost more" to="/shop?cat=Accessories">Shop accessories</Link>
       </section>
       <section className="sec">
         <p className="section-kicker">Why Austenite</p>

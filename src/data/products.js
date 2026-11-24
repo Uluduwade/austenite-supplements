@@ -1,6 +1,6 @@
 // Product photos are transparent 800x800 cutouts in /public/products, named by product id (e.g. img: '/products/iso-xp.webp')
 // To show a different photo per flavour, add flavourImg keyed by the exact flavour name (see `flavourImages` below).
-export const CATEGORIES = ['All', 'Protein', 'Performance', 'Wellness', 'Fat Burners']
+export const CATEGORIES = ['All', 'Protein', 'Performance', 'Wellness', 'Fat Burners', 'Accessories']
 const base = [
   { id: 'iso-xp', name: 'ISO XP', cat: 'Protein', price: 40000, gbp: 60, size: '1.8kg', flavours: ['Chocolate Dessert', 'Vanilla'], img: '/products/iso-xp.webp', desc: 'Ultra-clean whey isolate for lean muscle recovery.' },
   { id: 'essential-protein', name: 'Essential Protein', cat: 'Protein', price: 25000, gbp: 30, size: '1.6kg', flavours: ['Double Chocolate'], img: '/products/essential-protein.webp', desc: 'Complete everyday protein with 22g per serving.' },
@@ -9,6 +9,9 @@ const base = [
   { id: 'test-x', name: 'TEST X', cat: 'Performance', price: 12000, gbp: 21, size: '120 capsules', flavours: [], img: '/products/test-x.webp', desc: 'Capsule support for strength and training drive.' },
   { id: 'creatine-hydration', name: 'Creatine + Hydration', cat: 'Performance', price: 10000, size: '30 servings', flavours: [''], img: '/products/creatine-hydration.webp', outOfStock: true, desc: 'Creatine with added hydration support for harder sessions.' },
   { id: 'creatine-50', name: 'Creatine', cat: 'Performance', price: 8000, gbp: 10, size: '50 servings', flavours: ['Strawberry & Raspberry', 'Icy Blue Razz', 'Apple & Cherry'], img: '/products/creatine-50.webp', desc: 'Classic creatine for power and repeat performance.' },
+  { id: 'bodyfuel-creatine-gummies', name: 'BodyFuel™ Creatine Gummies', cat: 'Performance', price: 3500, size: '200g', flavours: ['Berry Blast', 'Cola'], img: '/products/bodyfuel-creatine-gummies-cola.png', desc: 'Convenient creatine gummies delivering 3g of creatine monohydrate per serving.' },
+  { id: 'abe-shaker-400ml', name: 'ABE Shaker', cat: 'Accessories', price: 1500, size: '400ml', flavours: [], img: '/products/abe-shaker-400ml.webp', desc: 'Compact Applied Nutrition shaker with a leak-proof design for smooth shakes.' },
+  { id: 'an-stainless-steel-flask', name: 'AN Stainless Steel Flask', cat: 'Accessories', price: 1800, size: '500ml', flavours: ['Blue', 'White'], img: '/products/an-flask-blue.png', optionLabel: 'Color', desc: '500ml Applied Nutrition stainless steel flask with Blue and White options.' },
   { id: 'amino-fuel', name: 'Amino Fuel', cat: 'Performance', price: 10500, size: '30 servings', flavours: [], img: '/products/amino-fuel.webp', desc: 'Intra-workout amino acids to keep you fuelled.' },
   { id: 'abe', name: 'ABE Pre Workout', cat: 'Performance', price: 10000, gbp: 16, size: '30 servings', flavours: ['Icy Blue', 'Cherry Cola', 'Twisted Citrus', 'Candy Icy Blast', 'Bubblegum Crush', 'Strawberry Mojito', 'White'], img: '/products/abe-icy-blue.webp', desc: 'Pre-workout for energy, focus and drive in five bold flavours.' },
   { id: 'unflavoured-500', name: 'Creatine Monohydrate unflavoured 100 servings', cat: 'Performance', price: 12500, gbp: 29.95, size: '500g, 100 servings', flavours: ['Unflavoured'], img: '/products/unflavoured-500.webp',desc: 'Pure, unflavoured, mixes into anything.' },
@@ -79,6 +82,28 @@ const details = {
     use: 'Mix one serving with water once a day, every day. Taking it with a meal or your post-workout shake works well.',
     who: 'Beginners and experienced lifters alike. It is the best first supplement after protein.',
     tip: 'Consistency beats timing. Take it daily, even on rest days.',
+  },
+  'bodyfuel-creatine-gummies': {
+    desc: 'Tasty creatine gummies delivering 3g of creatine monohydrate per serving.',
+    about: 'BodyFuel™ Creatine Gummies offer a convenient alternative to powders and capsules. Each daily serving provides 3g of creatine monohydrate in an easy-to-take gummy format, with Berry Blast and Cola flavours available.',
+    highlights: ['3g creatine monohydrate per serving', 'Four gummies per daily serving', 'Berry Blast and Cola flavours', 'Convenient vegan-friendly gummy format'],
+    use: 'Consume four gummies once daily. Do not exceed the suggested use on the label.',
+    who: 'Anyone who wants a simple, portable way to take creatine consistently.',
+    tip: 'Keep the gummies in a cool, dry place and use them alongside a varied, balanced diet.',
+  },
+  'abe-shaker-400ml': {
+    desc: 'Compact 400ml shaker for smooth protein and supplement drinks.',
+    about: 'The ABE 400ml shaker is a lightweight gym-bag essential for mixing protein shakes and other water-based supplements. It includes a mesh grill insert, screw-on top, clip cap and leak-proof design.',
+    highlights: ['400ml capacity', 'Mesh grill insert for smooth mixing', 'Leak-proof screw-on top', 'Dishwasher safe'],
+    use: 'Add your liquid and supplement, secure the lid and shake until smooth. Do not use with hot or warm fluids.',
+    who: 'Anyone who wants a compact shaker for training or travel.',
+  },
+  'an-stainless-steel-flask': {
+    desc: '500ml Applied Nutrition stainless steel flask in Blue or White.',
+    about: 'The AN Stainless Steel Flask is a reusable 500ml bottle made for keeping drinks close during training, travel and everyday use. Choose the Blue or White finish, each with a secure lid and Applied Nutrition branding.',
+    highlights: ['500ml capacity', 'Blue and White color options', 'Stainless steel construction', 'Secure, leak-resistant lid'],
+    use: 'Fill with a cold or room-temperature drink, secure the lid and carry upright. Do not use with boiling liquids.',
+    who: 'Anyone who wants a durable reusable flask for the gym, work or travel.',
   },
   'amino-fuel': {
     desc: 'Flavoured amino acid drink to keep you fuelled through training.',
@@ -199,6 +224,10 @@ const flavourImages = {
     'Bubblegum Crush': '/products/abe-bubblegum-crush.webp',
     'Strawberry Mojito': '/products/abe-stawberry-mojito.png',
     'White': '/products/abe-white.png',
+  },
+  'an-stainless-steel-flask': {
+    Blue: '/products/an-flask-blue.png',
+    White: '/products/an-flask-white.png',
   },
 }
 export function isFlavourOutOfStock(product, flavour) {

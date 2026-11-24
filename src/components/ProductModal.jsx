@@ -61,7 +61,7 @@ export default function ProductModal({ p, onClose }) {
           <div className="modal-foot">
           {p.flavours.length > 0 && (
             <div className="modal-opt">
-              <p className="section-kicker">Flavour</p>
+              <p className="section-kicker">{p.optionLabel || 'Flavour'}</p>
               <div className="chips">{p.flavours.map((f) => (
                 <button key={f} type="button" disabled={isFlavourOutOfStock(p, f)} className={'chip' + (f === flavour ? ' on' : '')} onClick={() => setFlavour(f)}>{f}{isFlavourOutOfStock(p, f) ? ' (out of stock)' : ''}</button>
               ))}</div>

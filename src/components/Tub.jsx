@@ -1,5 +1,5 @@
 // Placeholder product art, replaced by a real photo when product.img is set.
-const tone = { Protein: 0, Performance: 1, Wellness: 2, 'Fat Burners': 3 }
+const tone = { Protein: 0, Performance: 1, Wellness: 2, 'Fat Burners': 3, Accessories: 4 }
 export default function Tub({ p, big, loading }) {
   if (p.img) return <img className={'pimg' + (big ? ' big' : '')} src={p.img} alt={p.name} itemProp="image" loading={loading || (big ? 'eager' : 'lazy')} decoding="async" />
   return (
