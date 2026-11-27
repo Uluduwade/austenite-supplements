@@ -24,14 +24,14 @@ export default function Privacy() {
         <p>We do not sell your personal information or use it for unrelated marketing.</p>
 
         <h2>Information stored in your browser</h2>
-        <p>The website saves your selected currency in your browser&apos;s local storage so your choice is remembered on your next visit. This stays on your device, is not sent to us, and you can clear it at any time from your browser settings. We do not use advertising or tracking cookies.</p>
+        <p>The website saves your selected currency in your browser&apos;s local storage so your choice is remembered on your next visit. If you have not selected a currency, our hosting provider uses your IP address to determine your country and lets the website show LKR to visitors in Sri Lanka; otherwise, the website keeps GBP. The website does not receive or store your IP address through this lookup. You can change the currency at any time using the currency menu. We do not use advertising or tracking cookies.</p>
 
         <h2>Third-party services</h2>
         <p>Some features rely on other services, which have their own privacy policies:</p>
         <ul>
           <li><strong>Google Fonts</strong> is used to load the site&apos;s typefaces, which means your browser contacts Google&apos;s servers.</li>
           <li><strong>WhatsApp, Instagram, TikTok and email providers</strong> handle any messages you send us through them, and you leave this website when you follow those links.</li>
-          <li><strong>Hosting</strong> providers may keep standard server logs, such as IP address and browser type, for security and reliability.</li>
+          <li><strong>Hosting</strong> providers may process your IP address to provide country-level location information for currency display and may keep standard server logs, such as IP address and browser type, for security and reliability.</li>
         </ul>
 
         <h2>Sharing your information</h2>
