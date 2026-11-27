@@ -4,7 +4,7 @@ export const CATEGORIES = ['All', 'Protein', 'Performance', 'Wellness', 'Fat Bur
 const base = [
   { id: 'iso-xp', name: 'ISO XP', cat: 'Protein', price: 40000, gbp: 60, size: '1.8kg', flavours: ['Chocolate Dessert', 'Vanilla'], img: '/products/iso-xp.webp', desc: 'Ultra-clean whey isolate for lean muscle recovery.' },
   { id: 'essential-protein', name: 'Essential Protein', cat: 'Protein', price: 25000, gbp: 30, size: '1.6kg', flavours: ['Double Chocolate'], img: '/products/essential-protein.webp', desc: 'Complete everyday protein with 22g per serving.' },
-  { id: 'critical-whey', name: 'Critical Whey', cat: 'Protein', price: 28000, gbp: 40, size: '2kg', flavours: ['White Choc Pistachio', 'Chocolate', 'Vanilla'], outOfStockFlavours: ['White Choc Pistachio'], img: '/products/critical-whey.webp', desc: 'Premium whey protein blend with a serious flavour hit.' },
+  { id: 'critical-whey', name: 'Critical Whey', cat: 'Protein', price: 28000, gbp: 40, size: '2kg', flavours: ['White Choc Pistachio', 'Chocolate', 'Vanilla'], outOfStock: true,outOfStockFlavours: ['White Choc Pistachio'], img: '/products/critical-whey.webp', desc: 'Premium whey protein blend with a serious flavour hit.' },
   { id: 'critical-mass', name: 'Critical Mass', cat: 'Protein', price: 28000, gbp: 50, size: '6kg', flavours: ['Chocolate'], img: '/products/critical-mass.webp', outOfStock: true, desc: 'High calorie mass gainer for hard gainers building size.' },
   { id: 'test-x', name: 'TEST X', cat: 'Performance', price: 12000, gbp: 21, size: '120 capsules', flavours: [], img: '/products/test-x.webp', desc: 'Capsule support for strength and training drive.' },
   { id: 'creatine-hydration', name: 'Creatine + Hydration', cat: 'Performance', price: 10000, size: '30 servings', flavours: [''], img: '/products/creatine-hydration.webp', outOfStock: true, desc: 'Creatine with added hydration support for harder sessions.' },
@@ -18,12 +18,13 @@ const base = [
   { id: 'unflavoured-250', name: 'Creatine Monohydrate unflavoured', cat: 'Performance', price: 7500, gbp: 10, size: '250g, 50 servings', flavours: ['Unflavoured'], img: '/products/unflavoured-250.webp',desc: 'The smaller pack of our unflavoured powder.' },
   { id: 'shred-x', name: 'Shred X Fat Burner', cat: 'Fat Burners', price: 9500, size: '90 capsules', flavours: [], img: '/products/shred-x.webp', desc: 'Thermogenic capsules to support your cut.' },
   { id: 'zma', name: 'Zinc, Magnesium & Vitamin B6 (ZMA)', cat: 'Wellness', price: 9000, gbp: 15, size: '90 capsules', flavours: [], img: '/products/zma.webp', desc: 'ZMA capsules with ashwagandha for sleep quality, stress and recovery.' },
+  { id: 'ashwagandha-ksm-66', name: 'Ashwagandha KSM-66 Capsules', cat: 'Wellness', price: 7500, gbp: 15.95, size: '60 capsules, 30-day supply', flavours: [], img: '/products/ashwagandha-ksm-66.webp', desc: 'KSM-66 ashwagandha root extract with 300mg per capsule and 600mg per recommended daily intake.' },
   { id: 'shilajit', name: 'Shilajit', cat: 'Wellness', price: 7500, size: '90 capsules', flavours: [], img: '/products/shilajit.webp', desc: 'Traditional mineral-rich resin in easy capsules.' },
   { id: 'omega-3', name: 'Omega 3', cat: 'Wellness', price: 7000, gbp:11, size: '100 capsules', flavours: [], img: '/products/omega-3.webp', desc: 'Daily fish oil for heart, joints and recovery.' },
   { id: 'collagen', name: 'Collagen Peptide', cat: 'Wellness', price: 10000, gbp: 24.95, size: '300g', flavours: [], img: '/products/collagen.webp', desc: 'Collagen support for skin, joints and connective tissue.' }, 
   { id: 'multivitamin', name: 'Multivitamin Complex', cat: 'Wellness', price: 5500, gbp: 9.99, size: '90 capsules', flavours: [], img: '/products/multivitamin.png', desc: 'A convenient daily blend of vitamins and minerals for everyday wellness.' }, 
   { id: 'vitamin-d3', name: 'Vitamin D3 & Vitamin K2', cat: 'Wellness', price: 6500, gbp: 9.99, size: '90 capsules', flavours: [], img: '/products/vitamin-d3.png', desc: 'Vitamin D3 and K2 support for bones, immunity and calcium metabolism.' }, 
-  { id: 'beef-xp', name: 'Beef XP', cat: 'Protein', price: 28000, gbp: 24.95, size: '60 servings', flavours: ['Strawberry & Raspberry'], img: '/products/beef-xp.png', desc: 'Beef-based protein powder for a convenient daily protein top-up.' }, 
+  { id: 'beef-xp', name: 'Beef XP', cat: 'Protein', price: 28000, gbp: 24.95, size: '60 servings', flavours: ['Strawberry & Raspberry'], img: '/products/beef-xp.png',outOfStock: true, desc: 'Beef-based protein powder for a convenient daily protein top-up.' }, 
 ]
 // Richer copy shown in the product popup: desc (short pitch), about (longer paragraph),
 // highlights (key benefits), use (how to take it), who (best suited for), tip (small extra note).
@@ -151,6 +152,14 @@ const details = {
     use: 'Take as directed on the label, usually in the evening before bed with water. Do not exceed the recommended amount.',
     who: 'Hard-training lifters and athletes, and anyone wanting better sleep and recovery.',
     tip: 'If you are pregnant, on medication or have a medical condition, check with your doctor first.',
+  },
+  'ashwagandha-ksm-66': {
+    desc: 'KSM-66 ashwagandha root extract with 300mg per capsule and 600mg per recommended daily intake.',
+    about: 'Applied Nutrition Ashwagandha KSM-66 capsules contain an extract made from the root of Withania somnifera in a plant-based capsule shell. Each capsule contains 300mg of KSM-66 ashwagandha root extract. The recommended daily intake is one capsule twice a day, preferably with food, providing 600mg in total. Each bottle contains 60 vegetarian capsules, enough for 30 days at the recommended intake.',
+    highlights: ['300mg KSM-66 ashwagandha root extract per capsule', '600mg per recommended daily intake', '60 vegetarian capsules, 30-day supply', 'Plant-based capsule shell'],
+    use: 'Take one capsule twice a day, preferably with food. Do not exceed the recommended daily intake.',
+    who: 'Adults looking for a convenient daily ashwagandha supplement.',
+    tip: 'Food supplement. If you are pregnant, on medication or have a medical condition, check with your doctor before use.',
   },
   shilajit: {
     desc: 'Traditional mineral-rich resin, in easy-to-take capsules.',
